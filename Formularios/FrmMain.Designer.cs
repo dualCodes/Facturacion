@@ -238,6 +238,7 @@
             tsBtnCompras.Size = new Size(97, 51);
             tsBtnCompras.Text = "Compras";
             tsBtnCompras.TextImageRelation = TextImageRelation.ImageAboveText;
+            tsBtnCompras.Click += tsBtnCompras_Click;
             // 
             // toolStripSeparator1
             // 
@@ -267,6 +268,7 @@
             tsBtnProveedores.Size = new Size(97, 51);
             tsBtnProveedores.Text = "Proveedores";
             tsBtnProveedores.TextImageRelation = TextImageRelation.ImageAboveText;
+            tsBtnProveedores.Click += tsBtnProveedores_Click;
             // 
             // toolStripSeparator2
             // 

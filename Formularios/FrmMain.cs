@@ -59,6 +59,11 @@ namespace FacturacionDAM.Formularios
             AbrirFormularioHijo<FrmBrowClientes>();
         }
 
+        private void tsBtnProveedores_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioHijo<FrmBrowProveedor>();
+        }
+
         private void conceptosDeFacturaciónToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AbrirFormularioHijo<FrmBrowConceptosFac>();
@@ -86,6 +91,11 @@ namespace FacturacionDAM.Formularios
 
             else
                 AbrirFormularioHijo<FrmBrowFacemi>();
+        }
+
+        private void tsBtnCompras_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioHijo<FrmBrowProveedor>();
         }
 
         private void tsItemMenuSeleccionarEmisor_Click(object sender, EventArgs e)
