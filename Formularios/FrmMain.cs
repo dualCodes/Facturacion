@@ -95,7 +95,7 @@ namespace FacturacionDAM.Formularios
 
         private void tsBtnCompras_Click(object sender, EventArgs e)
         {
-            AbrirFormularioHijo<FrmBrowProveedor>();
+            //AbrirFormularioHijo<FrmBrowProveedor>();
         }
 
         private void tsItemMenuSeleccionarEmisor_Click(object sender, EventArgs e)

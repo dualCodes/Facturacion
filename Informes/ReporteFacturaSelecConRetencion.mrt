@@ -1,0 +1,850 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <CalculationMode>Interpretation</CalculationMode>
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="3">
+      <MySQL Ref="2" type="Stimulsoft.Report.Dictionary.StiMySqlDatabase" isKey="true">
+        <Alias>MySQL</Alias>
+        <ConnectionStringEncrypted>42zBa8Vbo9lGWujQ5QDgY4t00cLFTdnBXRWhzE104UbDVNHrTly76Wx4/cxoXGKC38j7aMUFkt35W7nAZADhO+U=</ConnectionStringEncrypted>
+        <Name>MySQL</Name>
+      </MySQL>
+      <MariaDB Ref="3" type="Stimulsoft.Report.Dictionary.StiMariaDbDatabase" isKey="true">
+        <Alias>MariaDB</Alias>
+        <ConnectionStringEncrypted />
+        <Name>MariaDB</Name>
+      </MariaDB>
+      <FACT Ref="4" type="Stimulsoft.Report.Dictionary.StiMariaDbDatabase" isKey="true">
+        <Alias>FACT</Alias>
+        <ConnectionStringEncrypted>42z7CUhbS8VGWujAalzhXot4U+vFXjGk4hWh9GNMdzvDcM3ryEy7yO9JpFjoWKR3xMjBjHlou8VsXOEIZD21ZsJ6zcJGXWlgcUm99A==</ConnectionStringEncrypted>
+        <Name>FACT</Name>
+      </FACT>
+    </Databases>
+    <DataSources isList="true" count="1">
+      <vista_facturas_emitidas Ref="5" type="Stimulsoft.Report.Dictionary.StiMariaDbSource" isKey="true">
+        <Alias>vista_facturas_emitidas</Alias>
+        <Columns isList="true" count="30">
+          <value>Idfacemi,System.Int32</value>
+          <value>numerofac,System.String</value>
+          <value>fecha,System.DateTime</value>
+          <value>basefacemi,System.Decimal</value>
+          <value>cuotafacemi,System.Decimal</value>
+          <value>totalfacemi,System.Decimal</value>
+          <value>tiporet,System.Decimal</value>
+          <value>retencion,System.Decimal</value>
+          <value>aplicaret,System.SByte</value>
+          <value>pagada,System.SByte</value>
+          <value>descripfacemi,System.String</value>
+          <value>cliente_nombre,System.String</value>
+          <value>cliente_nif,System.String</value>
+          <value>cliente_domicilio,System.String</value>
+          <value>cliente_poblacion,System.String</value>
+          <value>cliente_cp,System.String</value>
+          <value>cliente_telefono,System.String</value>
+          <value>emisor_nombre,System.String</value>
+          <value>emisor_nif,System.String</value>
+          <value>emisor_domicilio,System.String</value>
+          <value>emisor_poblacion,System.String</value>
+          <value>emisor_cp,System.String</value>
+          <value>emisor_telefono,System.String</value>
+          <value>descriplinea,System.String</value>
+          <value>precio,System.Decimal</value>
+          <value>cantidad,System.Decimal</value>
+          <value>baselinea,System.Decimal</value>
+          <value>ORIGINAL,tipoiva,tipoiva,tipoiva,System.Decimal,_x0033_6e52bbb735343d3a0953ae1bf625fc5</value>
+          <value>cuotalinea,System.Decimal</value>
+          <value>totallinea,System.Decimal</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>1d8c8dabb13447af90f17798ab2c9b83</Key>
+        <Name>vista_facturas_emitidas</Name>
+        <NameInSource>FACT</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from vista_facturas_emitidas</SqlCommand>
+      </vista_facturas_emitidas>
+    </DataSources>
+    <Relations isList="true" count="0" />
+    <Report isRef="0" />
+    <Resources isList="true" count="0" />
+    <UserFunctions isList="true" count="0" />
+    <Variables isList="true" count="0" />
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <Key>c13a0c91bea74e8089427777d75c9116</Key>
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="6" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="6">
+        <ReportTitle Ref="7" type="ReportTitleBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,19,6.4</ClientRectangle>
+          <Components isList="true" count="4">
+            <Text1 Ref="8" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.4,0.4,5.2,1.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Name>Text1</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>FACTURA
+Fecha: {vista_facturas_emitidas.fecha}
+Nº: {vista_facturas_emitidas.numerofac}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text1>
+            <Text2 Ref="9" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>11.8,0.4,6.8,4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Name>Text2</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>EMISOR
+Nombre: {vista_facturas_emitidas.emisor_nombre}
+NIF/CIF: {vista_facturas_emitidas.emisor_nif}
+Domicilio: {vista_facturas_emitidas.emisor_domicilio}
+Población: {vista_facturas_emitidas.emisor_poblacion}
+Teléfono: {vista_facturas_emitidas.emisor_telefono}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text2>
+            <Text3 Ref="10" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.4,2.4,8.2,2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Name>Text3</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>CLIENTE
+Nombre: {vista_facturas_emitidas.cliente_nombre}
+NIF/CIF: {vista_facturas_emitidas.cliente_nif}
+Dirección: {vista_facturas_emitidas.cliente_domicilio}, {vista_facturas_emitidas.cliente_cp}, {vista_facturas_emitidas.cliente_poblacion}
+Teléfono: {vista_facturas_emitidas.cliente_telefono}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text3>
+            <Text4 Ref="11" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.4,5,18.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Name>Text4</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>DESCRIPCIÓN: {vista_facturas_emitidas.descripfacemi}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text4>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Expressions isList="true" count="0" />
+          <Name>ReportTitle</Name>
+          <Page isRef="6" />
+          <Parent isRef="6" />
+        </ReportTitle>
+        <Header Ref="12" type="HeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,7.6,19,0.6</ClientRectangle>
+          <Components isList="true" count="6">
+            <Text5 Ref="13" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Name>Text5</Name>
+              <Page isRef="6" />
+              <Parent isRef="12" />
+              <Text>Descripcion</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text5>
+            <Text6 Ref="14" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6,0,2.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Name>Text6</Name>
+              <Page isRef="6" />
+              <Parent isRef="12" />
+              <Text>Precio</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text6>
+            <Text7 Ref="15" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>8.8,0,2.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Name>Text7</Name>
+              <Page isRef="6" />
+              <Parent isRef="12" />
+              <Text>Unidad</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text7>
+            <Text8 Ref="16" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>11,0,2.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Name>Text8</Name>
+              <Page isRef="6" />
+              <Parent isRef="12" />
+              <Text>Tipo IVA (%)</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text8>
+            <Text9 Ref="17" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>13.2,0,3.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Name>Text9</Name>
+              <Page isRef="6" />
+              <Parent isRef="12" />
+              <Text>Cuota</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text9>
+            <Text10 Ref="18" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>16.6,0,2.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Name>Text10</Name>
+              <Page isRef="6" />
+              <Parent isRef="12" />
+              <Text>Total</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text10>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Expressions isList="true" count="0" />
+          <Name>Header</Name>
+          <Page isRef="6" />
+          <Parent isRef="6" />
+        </Header>
+        <Data Ref="19" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,9,19,0.6</ClientRectangle>
+          <Components isList="true" count="6">
+            <Text11 Ref="20" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Name>Text11</Name>
+              <Page isRef="6" />
+              <Parent isRef="19" />
+              <Text>{vista_facturas_emitidas.descriplinea}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text11>
+            <Text12 Ref="21" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6,0,2.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Name>Text12</Name>
+              <Page isRef="6" />
+              <Parent isRef="19" />
+              <Text>{vista_facturas_emitidas.precio}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text12>
+            <Text13 Ref="22" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>8.8,0,2.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Name>Text13</Name>
+              <Page isRef="6" />
+              <Parent isRef="19" />
+              <Text>{vista_facturas_emitidas.cantidad}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text13>
+            <Text14 Ref="23" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>11,0,2.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Name>Text14</Name>
+              <Page isRef="6" />
+              <Parent isRef="19" />
+              <Text>{vista_facturas_emitidas.tipoiva}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text14>
+            <Text15 Ref="24" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>13.2,0,3.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Name>Text15</Name>
+              <Page isRef="6" />
+              <Parent isRef="19" />
+              <Text>{vista_facturas_emitidas.cuotalinea}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text15>
+            <Text16 Ref="25" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>16.6,0,2.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Name>Text16</Name>
+              <Page isRef="6" />
+              <Parent isRef="19" />
+              <Text>{vista_facturas_emitidas.totallinea}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text16>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataSourceName>vista_facturas_emitidas</DataSourceName>
+          <EvenStyle>Blue Steel_Data1_Even Style</EvenStyle>
+          <Expressions isList="true" count="0" />
+          <FilterMode>Or</FilterMode>
+          <Filters isList="true" count="0" />
+          <Name>Data</Name>
+          <OddStyle>Blue Steel_Data1_Odd Style</OddStyle>
+          <Page isRef="6" />
+          <Parent isRef="6" />
+          <Sort isList="true" count="0" />
+        </Data>
+        <Footer Ref="26" type="FooterBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,10.4,19,9.6</ClientRectangle>
+          <Components isList="true" count="12">
+            <Text18 Ref="27" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>13.4,1.6,3.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Name>Text18</Name>
+              <Page isRef="6" />
+              <Parent isRef="26" />
+              <Text>Base:{vista_facturas_emitidas.basefacemi}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text18>
+            <Text19 Ref="28" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>13.4,2,3.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Name>Text19</Name>
+              <Page isRef="6" />
+              <Parent isRef="26" />
+              <Text>Cuota:{vista_facturas_emitidas.cuotafacemi}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text19>
+            <Text20 Ref="29" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>13.4,2.8,3.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Name>Text20</Name>
+              <Page isRef="6" />
+              <Parent isRef="26" />
+              <Text>Retención:{vista_facturas_emitidas.retencion}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text20>
+            <ElectronicSignature1 Ref="30" type="Stimulsoft.Report.Components.StiElectronicSignature" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.4,3.6,9.8,2.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Description Ref="31" type="Stimulsoft.Report.Components.StiSignatureDescription" isKey="true" />
+              <Draw Ref="32" type="Stimulsoft.Report.Components.StiSignatureDraw" isKey="true">
+                <Image>iVBORw0KGgoAAAANSUhEUgAAAuQAAADcCAYAAAA4ErSMAAAAAXNSR0IArs4c6QAAAARnQU1BAACx
+jwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAABCUSURBVHhe7d0tk+1GkgZgsYELDRcaGi40HGho
+ONDQ0HCZ4YWGAwcOXGi4cH/CQkPDS2cj150TdWuk81mSqlTPE1FhR3ffbp066uj35EmllgUAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALuBPy7L8tCzLfx64
+flyW5d/rAwEAgNlEGP+vZVn+cdL6H+EcAIBZfLtSqf71Ixj/vvK5PdffN8J5/XW5IrT/W/2AAABg
+JBFs6xCcYfyb+osPEAH7+2VZ/rYsy+eV46pXvmgQzAEAGFIG8qiKl9XnM8J4LVpnIpzXlfFcWcnP
+YP5p5WvKpaIOAEA3IuxGQP3tI9BGYB1RtNystbpsLRV1AABOUU5N+bkI4lkd76Ei/o44/roiXq+6
+ot5TMF/r5X9mxb8HAKBTW1NTIqDOFuTi8ZbBPC4a7SGUR6iun59nVvx7AAA6VIbxcmrKbEG8Fo//
+fz/2ZWuSyx4951uV8HyRUPfy31v1v5v9eQUA6EodxkdvS2kt5pxnKN9arVtb4nvVP6Nc8fln1N/v
+2X8PAEBjZQW2nCcujK+LUF5Xnev9K4P5ozcr2rrTaV3RrtezFe58vvP7xv8DAHCiCGRlxVQYf0/d
+cx7r3p1Et3r2y9U6OOfz3vr7AgDwpAxmWYEVxtuIYL52s6IM518XFfHynYm6Av5qJfwegRwA4GRX
+mSveu7xZ0b3Z50e/MyGQAwCcpA7iWbX9j/oLaSr2Pea5b10UGh/PanhUzltdFLpFIAcAOEkGsQzi
+39VfQHNrPeJREf9ho60lVrxg+nP9jRoSyAEADpZTPLJf+Zf6C2iqnJqy1iNetqdkW0t+7r+LYP7X
+narlAjkAwIHWKrSC2H7W9vvZHvEI81k536NaLpADABykvtlPVmFbT+2Y3TMV8UfFJJayWh7tLfG9
+bo1QfJRADgBwkAiJr1RoeVyLivgtZbW8XDlC8av6HzxAIAcAOIjgta+tdyBahfEU1fL83msjFKMq
+HxeJPtpv7rwAADhAhEW3SN9PHcZbh/BbInj/ZSWc54uCe8FcIAcA2NmZYfHKYl+zUl32ip+5vxnO
+83geCeYCOQDAjoTx/UTPdl2R7ml/42LdMphHn/laKBfIAYDLKadsnL3KQGaaSjvxHOcdTmOOe+x1
+T2G8FM973hV0LZTHsQvkAMBlrE3Z6GWthTFek9Xx2NMRxGjEDOV1C4tADgAMa60SvjZ3+uj1czEa
+L4+jrJDWX69y/pyyOv5d/cmORSive8s/FR+L/8b54EUbADCEW5Xws3uJ1+aNlxXSekUI4zHl8z5K
+dbwWL8DqiSzl8k4KANCdCGEx17msKt+qhJ8ZxkMcw1rQjlC+9hhURh9ztQtk4/jr8+BWrzkAwOEi
+gEWvcLYn1KvHUPbMvPEM7iqjj1l75+EKyhdw5TspzgcA4HBlT3j0YZdBfK33urdQ9mwFN1oX8rEI
+YfeVwfVK6sdVh/L4eLwwdV4AALva6gmPQDLChXvPhvFaHcKEr39VB9cr2HpHZe2ag3o6CwDAyx6d
+jjJCEA/vhvFUh/LcB1NY/nC1QH7vvCmvOainswjmAMDLtirhW6FkBC17m9cqo1cJoO/YqiSP7Nnz
+5tE7fwIA/IuyIr5WCc/1SCjpUevKbVZG6ykss1bK71WSR/XqeXPvzp8AAF9Yq4hfKVTtWbnNwJar
+9fcfxbOV5FG8GshD3d4klAMAq+rK5uiV8Fr9+Fo/rpzCMnul/J3g2rN3H1cdyvP3Kz4OAEwugmo5
+P3yPsNqDoyq3s1fK3w2uvWrxuNauOYi7gAIAk6qDeFbu9gyrZ2oRqB5RV8r3/nm9OWqfj9bqcZXT
+WD5/fM+r/s4BADfUveKjzA9/R6tA9aj8ebP1DB+9z0fY69qDT6rkADCnupf66kH8rIp13TM8Syi/
+WiCvf19aVrO/Kqrkcbfb2DM95QBwcXuGi15lQMx1ZFAsQ/mRP/dMVwvke197kFXyXKrlAHBBW3PF
+9wgXPcqAeNbUk7N//tGuFsj3fjxRJY/vHUtPOQBcUN0rPlsYD3sHqnvy5+c66ziOcvZ+txatJEc9
+Hj3lAHAxdXtKVuFmCuPh7IB4Vg/7Wc7e75bidyinEB1xrcVaT/ks1x4AwOXUYXy2EF7qJSD2chx7
+u9LjjLGg8Vjiotyj1D3lM10QDADDm71XfEsvAbGX49jbVR7n0dXxVPaUzzilBwCGpVd83V7zo1+R
+QfXq4eoqgfyHE6rjtVlHZwLAcOr2lKyuCeN9te3MEq6uEsh7eRyznDcAMLS95ySPqsd9mWEueS9B
+9h09vbMShHIA6NRs0zue1Wsw7PW4Whn98fX2zkoSygGgQxl8co0agPbSazDs9bhaGfnx9RrG0wzv
+sADAEOrK+Cx3gHxWr8Ewj+uqz1uv+35P72E81edPhHQA4GD5B1ll/LZeg+HVn79e9/2eHq85WFOf
+P+7qCQAHUhl/Tq/BsH4eezu+d/W67/eMctx5/sSdPDOU9/wCAgAupa6M9R4cztZ7wOr9+F416uPK
+gDvScUd1XJUcAA6UQUdl/DG9B8Pej+9VIz6us+7K+a6ojKuSA8CBRgw6Z+p9v3o/vlfl4xppNN+P
+xTGPJqvkI+03AAzn6j3He+k98PZ+fK8abV72qNXxNNp+A8CQMrjlulqA20vvgbf343vHKPOyy1GH
+I1bH0yj7DQDDyuCmd/w5vQfe3o/vXb0/vlHmjj+q9/0GgGFFaNCq8preA0rvx/eunh/f1cJ4yP3W
+tgIADV0xNByp50AYej++d/X6+K76e6WXHAAau2poOFLvFcNeA2sr+fh6mpF99d+rMpT3tO8AMJyr
+h4aj9F4xvHog721G9iy/V73tOwAM6acJQsNRep4+cfVAHnq6k+RMv1e577/UnwAAHjNDUDtSr/vZ
+63G11FO1dob9Trnvn5dl+ar+JABw30zB4Qi5n721rfR6XK31cCfJGacV5b7HOwMAwIPckXMfvfaS
+93pcrZ31OCOEx+9Q+Ts1Q7tK8sIeAF6Qf0Bz+UPaTq+95L0eV2tnPM4fq9+nmcJ4mOUdGABoKv+A
+uiPnPnqtGPZ6XK0d+TijOv7bx8+LCxvjZ84UxsNZ70wAwNCODCwz6rViOMvzfuT+Z3U8ftbMhHIA
+eJDe8WP0Gk5mCeRH7X9ZHf+u/uSEjtp3ABhaBrJcVw9mZ+oxnMwSyMPed5Isb/4ze3W8dEYPPwAM
+JQOZ3vFj9BbKZwrkofVs8nyHqXyXabYLOB8x23kGAE/xh/J4PYXyGZ//lnfwzP3LJYyvm/E8A4CH
++UN5jl5C+YzPf4sqebSnxE1vsiqe7zC9+v2ubsbzDAAe9rM/lKfpIZTPGpTeqZKXveK5Ztu/Z816
+ngHAXSZCnO/sUD5rUIp9//xClbwM49GeEvsWy7UXt816ngHAXeYl92Hv6R+3zByUPj2553UYfybI
+zy7PszNedAJAt1TH+/JqxfZdMwfyr57Yc2H8PWe/EwQAXVId78+zFdsWZg7kIfc820/WgqIw3oZ5
+5ABQUB3v0zMV21ZmD+Sx53mB51owF8bbmv18A4B/Uh3v1yMV25YEpD9E0M4Rhrkfwnh7zjcAUB3v
+3r2KbWsC0pfyBVGMAxXG23O+AcCyLD+ojg9hrWK7BwHpS7kf2TokjLflfAMAfxCHkxXbvZ4v58OX
+vi7CeCzzxdtyvgGAP4jDyedrr9YV58MfopUrrq3Idq6935mYlfMNAPxBHE7dutI6mM9+PqwF8Wjn
+yj7+WfdlL7OfbwDw//xBHFO0TpTBvNXNVWY+H8opKrmneaFz7kurfeYPM59vAPBP/iCOLYJ5yzse
+zno+1CMN64lD7iy5j1nPNwD4QgS6+GPoYrVxlWHx3RaW2SrBdYvKrSkqQnl7AjkAcBkRFlv0ls8S
+Ousgno93K4ynWfbnKAI5AHA5LXrLy9B51aCUQTD3qG5RuUUob0cgBwAu693e8qsFpWzNypUvWn6p
+v/BBQnkbVzvPAAC+8E5ovFpQKivi5Xrn8b2zv/zRNpQvjN55HgAAuvZqaBw9kG9VxOO/5cffvZj5
+1f2dXT3V5l7vPgDA0F6ZwjJ6IN+jIr5FKH/eT8I4ADCbtSksn4pKcR0iM9BmRfndSvJRovIaYW+v
+ivgWofw5o7/gAwB4WQTSvA18ueoQWVeYRwhO9Z02jz5uofxxAjkAML1oE8iq8VqIzB7sutK8V4X5
+WXWPeHms2ZZzxvHWoTyPQzj/kkAOAFCoQ+QIlfL6uHL10JNc7meuel9nJ5ADAFTqUF5WnSPkxsfi
+c2dXyu/1iJ8dxlPsZx7T1oudGdXvvAjkAACFtcru1jojSJ3dI/6q+sXOzKG8fmdjhOcPAOBQZWW3
+rJLXgXzvSnlWwteO48we8VfVoXy0428lA/ne5w8AwOVEcFoL5jGxJcJmS2uV8Fw99Ii/au0diJkq
+xO7MCQDQwHfLsvxtWZbPVbAsq77vrrVKeK5Rw3jKdyC2euCvVjEup+GUz+vozyMAwOkiYNXV65br
+6qFta//i41dSP86rP68AAIdZmwNeV0LLEFbeFfSRdfXQVu9fXTEf/cLPrWk4V39eAQC6UfecZ/vJ
+6EFzL7E35YuYkaexrF0DEI8PAIATCOaPKSvma9NY6tXr/pVhfMRpOAAAlyWYP25tGku9eqyg12Fc
+ewoAQIe2gnnr0YmjW5sH31MF/d6ceGEcAKBzdTCPFUHzr8uy/EVAv+nsCvpaj3guYRwAYDARzOPm
+QhHk6nCXAb2u/v64Y9gcxbsV9HfWlefEAwBMLcLcDx83HvptJaDXldgIgLMH8zWPVNDfXSrhAAAT
++PojoNdVWD3o992qoLdYwjgAwOTWetCjRSPaWYRzAAA4SATzaHH5vBLO66puVNuj6g4AADQWkz++
+3wjn9Yr+9Pg6AR0AAHaQ4byukG9dLJoBvf567S8AALCDvFh0K6DXS286AADsaGuaS8xHF84BAOBE
+Mec87hy6Fs7dWRQAAA5UhvO1VpetO4u6eBQAAHbwbC+66S4AALCjrV70rcBeBvSovgMAADu6VVH/
+/SO8C+YAAHCQDOi/VsH8k3noAABwrG83JrmUy8hFAADY2TcrPehrQV04BwCAA5mHDgAAnXh2Hrox
+iwAAsKNb01vKZQ46AAAcoJ6HvhXUM6DXPetryzhGAAB406OV9LUVF5EK5QAA0FBdSd9a0ZOeobz+
+XCzTXgAAYEcRtjOU31pGMQIAwE4iZNeV8Vxroxi3qukq6wAAsIPoL//+oz/980pAv7VU1gEAoKE/
+fYTzuiJer1cr6+VyoSkAALzhncp6BnihHAAAGni0sp7r3vSXZ1e0zZwV7r8tjiP+HwAAuvfo9Jdn
+1u8fofjoYB4/M48h/h8AAIZwa/rLs+vXKph/WvmavVb+7PivCjkAANOKMLx2selRK8I5AABM75uV
+KvYRS3UcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAK/we1
+L7+9VVhznAAAAABJRU5ErkJggg==</Image>
+              </Draw>
+              <Expressions isList="true" count="0" />
+              <Icon Ref="33" type="Stimulsoft.Report.Components.StiSignatureIcon" isKey="true" />
+              <Image Ref="34" type="Stimulsoft.Report.Components.StiSignatureImage" isKey="true" />
+              <Name>ElectronicSignature1</Name>
+              <Page isRef="6" />
+              <Parent isRef="26" />
+              <Text Ref="35" type="Stimulsoft.Report.Components.StiSignatureText" isKey="true" />
+              <Type Ref="36" type="Stimulsoft.Report.Components.StiSignatureType" isKey="true" />
+            </ElectronicSignature1>
+            <Text17 Ref="37" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>11.4,5.2,7.2,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Name>Text17</Name>
+              <Page isRef="6" />
+              <Parent isRef="26" />
+              <Text>Cuenta bancaria:</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text17>
+            <Text21 Ref="38" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.4,3.2,7.2,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Name>Text21</Name>
+              <Page isRef="6" />
+              <Parent isRef="26" />
+              <Text>Firma electrónica:</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text21>
+            <Text22 Ref="39" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>13.4,3.2,3.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Name>Text22</Name>
+              <Page isRef="6" />
+              <Parent isRef="26" />
+              <Text>Total:{vista_facturas_emitidas.totalfacemi}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text22>
+            <Text23 Ref="40" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>13.4,2.4,3.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Name>Text23</Name>
+              <Page isRef="6" />
+              <Parent isRef="26" />
+              <Text>Tipo de retención:{vista_facturas_emitidas.tiporet}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text23>
+            <StartPointPrimitive1 Ref="41" type="Stimulsoft.Report.Components.StiStartPointPrimitive" isKey="true">
+              <ClientRectangle>11.4,5.6,0,0</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Name>StartPointPrimitive1</Name>
+              <Page isRef="6" />
+              <Parent isRef="26" />
+              <ReferenceToGuid>d1c13ca674f24df2bb4f2771420b21a0</ReferenceToGuid>
+            </StartPointPrimitive1>
+            <EndPointPrimitive1 Ref="42" type="Stimulsoft.Report.Components.StiEndPointPrimitive" isKey="true">
+              <ClientRectangle>18.6,6.4,0,0</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Name>EndPointPrimitive1</Name>
+              <Page isRef="6" />
+              <Parent isRef="26" />
+              <ReferenceToGuid>d1c13ca674f24df2bb4f2771420b21a0</ReferenceToGuid>
+            </EndPointPrimitive1>
+            <StartPointPrimitive2 Ref="43" type="Stimulsoft.Report.Components.StiStartPointPrimitive" isKey="true">
+              <ClientRectangle>0.4,3.6,0,0</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Name>StartPointPrimitive2</Name>
+              <Page isRef="6" />
+              <Parent isRef="26" />
+              <ReferenceToGuid>e3a6f76feeea4aeba254a5d804f35549</ReferenceToGuid>
+            </StartPointPrimitive2>
+            <EndPointPrimitive2 Ref="44" type="Stimulsoft.Report.Components.StiEndPointPrimitive" isKey="true">
+              <ClientRectangle>10.2,6.4,0,0</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Name>EndPointPrimitive2</Name>
+              <Page isRef="6" />
+              <Parent isRef="26" />
+              <ReferenceToGuid>e3a6f76feeea4aeba254a5d804f35549</ReferenceToGuid>
+            </EndPointPrimitive2>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Expressions isList="true" count="0" />
+          <Name>Footer</Name>
+          <Page isRef="6" />
+          <Parent isRef="6" />
+        </Footer>
+        <RectanglePrimitive1 Ref="45" type="RectanglePrimitive" isKey="true">
+          <ClientRectangle>11.4,16,7.2,0.8</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Expressions isList="true" count="0" />
+          <Guid>d1c13ca674f24df2bb4f2771420b21a0</Guid>
+          <Name>RectanglePrimitive1</Name>
+          <Page isRef="6" />
+          <Parent isRef="6" />
+        </RectanglePrimitive1>
+        <RectanglePrimitive2 Ref="46" type="RectanglePrimitive" isKey="true">
+          <ClientRectangle>0.4,14,9.8,2.8</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Expressions isList="true" count="0" />
+          <Guid>e3a6f76feeea4aeba254a5d804f35549</Guid>
+          <Name>RectanglePrimitive2</Name>
+          <Page isRef="6" />
+          <Parent isRef="6" />
+        </RectanglePrimitive2>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Expressions isList="true" count="0" />
+      <Guid>2ea6588abd44474f9644c7e7c89d442c</Guid>
+      <Margins>1,1,1,1</Margins>
+      <Name>Page1</Name>
+      <PageHeight>29.7</PageHeight>
+      <PageWidth>21</PageWidth>
+      <Report isRef="0" />
+    </Page1>
+  </Pages>
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportAuthor>DSA ASD</ReportAuthor>
+  <ReportChanged>3/3/2026 3:53:51 PM</ReportChanged>
+  <ReportCreated>3/3/2026 1:56:39 PM</ReportCreated>
+  <ReportFile>C:\Users\admin\Documents\ReporteFacturaSelecConRetencion.mrt</ReportFile>
+  <ReportGuid>eb7a247b8460457a9e406a191bb5616c</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2026.1.4.0</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        public Report()        {
+            this.InitializeComponent();
+        }
+
+        #region StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="12">
+    <Blue_x0020_Steel_Report_Title1 Ref="47" type="Stimulsoft.Report.StiStyle" isKey="true">
+      <Border>None;[0:0:39];1;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <CollectionName>Blue Steel</CollectionName>
+      <Conditions isList="true" count="1">
+        <Item41 Ref="48" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
+          <ComponentType>Text, Primitive, Image</ComponentType>
+          <Placement>ReportTitle</Placement>
+          <Type>ComponentType, Placement, PlacementNestedLevel</Type>
+        </Item41>
+      </Conditions>
+      <Font>Arial,14,Bold</Font>
+      <Name>Blue Steel_Report_Title1</Name>
+      <NegativeTextBrush>Red</NegativeTextBrush>
+      <TextBrush>[79:129:189]</TextBrush>
+    </Blue_x0020_Steel_Report_Title1>
+    <Blue_x0020_Steel_Report_Title2 Ref="49" type="Stimulsoft.Report.StiStyle" isKey="true">
+      <Border>None;[0:0:39];1;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <CollectionName>Blue Steel</CollectionName>
+      <Conditions isList="true" count="1">
+        <Item43 Ref="50" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
+          <ComponentType>Text, Primitive, Image</ComponentType>
+          <OperationPlacementNestedLevel>GreaterThanOrEqualTo</OperationPlacementNestedLevel>
+          <Placement>ReportTitle</Placement>
+          <PlacementNestedLevel>2</PlacementNestedLevel>
+          <Type>ComponentType, Placement, PlacementNestedLevel</Type>
+        </Item43>
+      </Conditions>
+      <Font>Arial,10,Bold</Font>
+      <Name>Blue Steel_Report_Title2</Name>
+      <NegativeTextBrush>Red</NegativeTextBrush>
+      <TextBrush>[79:129:189]</TextBrush>
+    </Blue_x0020_Steel_Report_Title2>
+    <Blue_x0020_Steel_Report_Summary Ref="51" type="Stimulsoft.Report.StiStyle" isKey="true">
+      <Border>None;[0:0:39];1;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <CollectionName>Blue Steel</CollectionName>
+      <Conditions isList="true" count="1">
+        <Item45 Ref="52" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
+          <ComponentType>Text, Primitive, Image</ComponentType>
+          <Placement>ReportSummary</Placement>
+          <Type>ComponentType, Placement</Type>
+        </Item45>
+      </Conditions>
+      <Font>Arial,10,Bold</Font>
+      <Name>Blue Steel_Report_Summary</Name>
+      <NegativeTextBrush>Red</NegativeTextBrush>
+      <TextBrush>[79:129:189]</TextBrush>
+    </Blue_x0020_Steel_Report_Summary>
+    <Blue_x0020_Steel_Page_Header Ref="53" type="Stimulsoft.Report.StiStyle" isKey="true">
+      <Border>None;[0:0:39];1;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <CollectionName>Blue Steel</CollectionName>
+      <Conditions isList="true" count="1">
+        <Item47 Ref="54" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
+          <ComponentType>Text, Primitive, Image</ComponentType>
+          <Placement>PageHeader</Placement>
+          <Type>ComponentType, Placement</Type>
+        </Item47>
+      </Conditions>
+      <Font>Arial,10</Font>
+      <Name>Blue Steel_Page_Header</Name>
+      <NegativeTextBrush>Red</NegativeTextBrush>
+      <TextBrush>Black</TextBrush>
+    </Blue_x0020_Steel_Page_Header>
+    <Blue_x0020_Steel_Page_Footer Ref="55" type="Stimulsoft.Report.StiStyle" isKey="true">
+      <Border>None;[0:0:39];1;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <CollectionName>Blue Steel</CollectionName>
+      <Conditions isList="true" count="1">
+        <Item49 Ref="56" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
+          <ComponentType>Text, Primitive, Image</ComponentType>
+          <Placement>PageFooter</Placement>
+          <Type>ComponentType, Placement</Type>
+        </Item49>
+      </Conditions>
+      <Font>Arial,10</Font>
+      <Name>Blue Steel_Page_Footer</Name>
+      <NegativeTextBrush>Red</NegativeTextBrush>
+      <TextBrush>Black</TextBrush>
+    </Blue_x0020_Steel_Page_Footer>
+    <Blue_x0020_Steel_Group_Header1 Ref="57" type="Stimulsoft.Report.StiStyle" isKey="true">
+      <Border>Top, Bottom;[0:0:39];1;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <CollectionName>Blue Steel</CollectionName>
+      <Conditions isList="true" count="1">
+        <Item51 Ref="58" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
+          <ComponentType>Text, Primitive, Image</ComponentType>
+          <OperationPlacementNestedLevel>GreaterThanOrEqualTo</OperationPlacementNestedLevel>
+          <Placement>GroupHeader</Placement>
+          <Type>ComponentType, Placement, PlacementNestedLevel</Type>
+        </Item51>
+      </Conditions>
+      <Font>Arial,13,Bold</Font>
+      <Name>Blue Steel_Group_Header1</Name>
+      <NegativeTextBrush>Red</NegativeTextBrush>
+      <TextBrush>[79:129:189]</TextBrush>
+    </Blue_x0020_Steel_Group_Header1>
+    <Blue_x0020_Steel_Group_Footer1 Ref="59" type="Stimulsoft.Report.StiStyle" isKey="true">
+      <Border>Top, Bottom;[0:0:39];1;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <CollectionName>Blue Steel</CollectionName>
+      <Conditions isList="true" count="1">
+        <Item53 Ref="60" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
+          <ComponentType>Text, Primitive, Image</ComponentType>
+          <Placement>GroupFooter</Placement>
+          <Type>ComponentType, Placement, PlacementNestedLevel</Type>
+        </Item53>
+      </Conditions>
+      <Font>Arial,9.75,Bold,Point,False,204</Font>
+      <Name>Blue Steel_Group_Footer1</Name>
+      <NegativeTextBrush>Red</NegativeTextBrush>
+      <TextBrush>[79:129:189]</TextBrush>
+    </Blue_x0020_Steel_Group_Footer1>
+    <Blue_x0020_Steel_Header1 Ref="61" type="Stimulsoft.Report.StiStyle" isKey="true">
+      <Border>Top, Bottom;[0:0:39];2;Solid;False;4;Black;True</Border>
+      <Brush>[79:129:189]</Brush>
+      <CollectionName>Blue Steel</CollectionName>
+      <Conditions isList="true" count="1">
+        <Item55 Ref="62" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
+          <ComponentType>Text, Primitive, Image</ComponentType>
+          <OperationPlacementNestedLevel>GreaterThanOrEqualTo</OperationPlacementNestedLevel>
+          <Placement>Header</Placement>
+          <Type>ComponentType, Placement, PlacementNestedLevel</Type>
+        </Item55>
+      </Conditions>
+      <Font>Arial,9.75,Bold,Point,False,204</Font>
+      <Name>Blue Steel_Header1</Name>
+      <NegativeTextBrush>Red</NegativeTextBrush>
+      <TextBrush>White</TextBrush>
+    </Blue_x0020_Steel_Header1>
+    <Blue_x0020_Steel_Data1 Ref="63" type="Stimulsoft.Report.StiStyle" isKey="true">
+      <Border>None;[0:0:39];1;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <CollectionName>Blue Steel</CollectionName>
+      <Conditions isList="true" count="1">
+        <Item57 Ref="64" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
+          <ComponentType>Text, Primitive, Image, CheckBox</ComponentType>
+          <OperationPlacementNestedLevel>GreaterThanOrEqualTo</OperationPlacementNestedLevel>
+          <Placement>Data</Placement>
+          <Type>ComponentType, Placement, PlacementNestedLevel</Type>
+        </Item57>
+      </Conditions>
+      <Font>Arial,8</Font>
+      <Name>Blue Steel_Data1</Name>
+      <NegativeTextBrush>Red</NegativeTextBrush>
+      <TextBrush>[0:0:0]</TextBrush>
+    </Blue_x0020_Steel_Data1>
+    <Blue_x0020_Steel_Data1_Odd_x0020_Style Ref="65" type="Stimulsoft.Report.StiStyle" isKey="true">
+      <Border>None;[0:0:39];1;Solid;False;4;Black</Border>
+      <Brush>[255:255:255]</Brush>
+      <CollectionName>Blue Steel</CollectionName>
+      <Conditions isList="true" count="1">
+        <Item59 Ref="66" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
+          <OperationPlacementNestedLevel>GreaterThanOrEqualTo</OperationPlacementNestedLevel>
+          <Placement>DataOddStyle</Placement>
+          <Type>Placement, PlacementNestedLevel</Type>
+        </Item59>
+      </Conditions>
+      <Font>Arial,8</Font>
+      <Name>Blue Steel_Data1_Odd Style</Name>
+      <NegativeTextBrush>Red</NegativeTextBrush>
+      <TextBrush>[0:0:0]</TextBrush>
+    </Blue_x0020_Steel_Data1_Odd_x0020_Style>
+    <Blue_x0020_Steel_Data1_Even_x0020_Style Ref="67" type="Stimulsoft.Report.StiStyle" isKey="true">
+      <Border>None;[0:0:39];1;Solid;False;4;Black</Border>
+      <Brush>[216:216:216]</Brush>
+      <CollectionName>Blue Steel</CollectionName>
+      <Conditions isList="true" count="1">
+        <Item61 Ref="68" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
+          <OperationPlacementNestedLevel>GreaterThanOrEqualTo</OperationPlacementNestedLevel>
+          <Placement>DataEvenStyle</Placement>
+          <Type>Placement, PlacementNestedLevel</Type>
+        </Item61>
+      </Conditions>
+      <Font>Arial,8</Font>
+      <Name>Blue Steel_Data1_Even Style</Name>
+      <NegativeTextBrush>Red</NegativeTextBrush>
+      <TextBrush>[0:0:0]</TextBrush>
+    </Blue_x0020_Steel_Data1_Even_x0020_Style>
+    <Blue_x0020_Steel_Footer1 Ref="69" type="Stimulsoft.Report.StiStyle" isKey="true">
+      <Border>Top, Bottom;[0:0:39];2;Solid;False;4;Black</Border>
+      <Brush>White</Brush>
+      <CollectionName>Blue Steel</CollectionName>
+      <Conditions isList="true" count="1">
+        <Item63 Ref="70" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
+          <ComponentType>Text, Primitive, Image</ComponentType>
+          <Placement>Footer</Placement>
+          <Type>ComponentType, Placement, PlacementNestedLevel</Type>
+        </Item63>
+      </Conditions>
+      <Font>Arial,8.25,Bold,Point,False,204</Font>
+      <Name>Blue Steel_Footer1</Name>
+      <NegativeTextBrush>Red</NegativeTextBrush>
+      <TextBrush>Black</TextBrush>
+    </Blue_x0020_Steel_Footer1>
+  </Styles>
+  <UsePlatformDependentScript>False</UsePlatformDependentScript>
+</StiSerializer>

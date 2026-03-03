@@ -41,4 +41,13 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Include="Informes\ReporteFacturaSelecSinRetencion.mrt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Informes\ReporteFacturaSelecConRetencion.mrt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

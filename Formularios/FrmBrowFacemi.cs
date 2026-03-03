@@ -258,16 +258,33 @@ namespace FacturacionDAM.Formularios
         {
             DateTime fechaInicio = new DateTime(_year.CurrentYear, 1, 1);
             DateTime fechaFin = new DateTime(_year.CurrentYear, 12, 31);
-            
-            FrmInformeFacemiAnual frm = new FrmInformeFacemiAnual();
+
+            DataRowView facturaSeleccionada = _bsFacturas?.Current as DataRowView;
+            int? idFacturaSeleccionada = null;
+
+            if (facturaSeleccionada != null)
+            {
+                idFacturaSeleccionada = Convert.ToInt32(facturaSeleccionada["id"]);
+            }
+
+            FrmInformeFacemiAnual frm;
+
+            if (idFacturaSeleccionada.HasValue)
+            {
+                frm = new FrmInformeFacemiAnual(idFacturaSeleccionada.Value, facturaSeleccionada);
+            }
+            else
+            {
+                frm = new FrmInformeFacemiAnual();
+            }
 
             frm.fechaIni.MinDate = fechaInicio;
             frm.fechaIni.MaxDate = fechaFin;
-            frm.fechaFin.Value = fechaInicio;
-            
+            frm.fechaIni.Value = fechaInicio;
+
             frm.fechaFin.MinDate = fechaInicio;
             frm.fechaFin.MaxDate = fechaFin;
-            frm.fechaIni.Value = fechaFin;
+            frm.fechaFin.Value = fechaFin;
 
             frm.ShowDialog();
         }

@@ -398,6 +398,7 @@
             btnInforme.Name = "btnInforme";
             btnInforme.Size = new Size(24, 24);
             btnInforme.Text = "toolStripButton1";
+            btnInforme.ToolTipText = "Generar informe de facturas entre fechas";
             btnInforme.Click += toolStripButton1_Click;
             // 
             // toolStripSeparator5
