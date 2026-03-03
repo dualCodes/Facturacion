@@ -50,6 +50,9 @@
     <Setting Name="UltimoAnhoSeleccionado" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
+    <Setting Name="UltimoAnhoSeleccionadoCompras" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
     <Setting Name="BrowFacemiState" Type="System.String" Scope="User">
       <Value Profile="(Default)">"Maximized"</Value>
     </Setting>
@@ -57,6 +60,15 @@
       <Value Profile="(Default)">0, 0</Value>
     </Setting>
     <Setting Name="BrowFacemiLocation" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)">0, 0</Value>
+    </Setting>
+    <Setting Name="BrowFacrecState" Type="System.String" Scope="User">
+      <Value Profile="(Default)">"Maximized"</Value>
+    </Setting>
+    <Setting Name="BrowFacrecSize" Type="System.Drawing.Size" Scope="User">
+      <Value Profile="(Default)">0, 0</Value>
+    </Setting>
+    <Setting Name="BrowFacrecLocation" Type="System.Drawing.Point" Scope="User">
       <Value Profile="(Default)">0, 0</Value>
     </Setting>
     <Setting Name="BrowProveedorSize" Type="System.Drawing.Size" Scope="User">

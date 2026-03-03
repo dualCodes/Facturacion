@@ -31,18 +31,9 @@ namespace FacturacionDAM.Formularios
 
         private void ActualizarEstadoControles()
         {
-            // Habilitar el botón solo para los informes de factura seleccionada (implementados)
-            // Los informes por fechas aún no están implementados
-            if (rbFacturaSinRetencion.Checked || rbFacturaConRetencion.Checked)
-            {
-                btnInforme.Enabled = true;
-                btnInforme.Text = "Generar Informe";
-            }
-            else
-            {
-                btnInforme.Enabled = false;
-                btnInforme.Text = "Informe no disponible";
-            }
+            // Todos los informes están implementados
+            btnInforme.Enabled = true;
+            btnInforme.Text = "Generar Informe";
         }
 
         private void btnInforme_Click(object sender, EventArgs e)
@@ -55,9 +46,17 @@ namespace FacturacionDAM.Formularios
             {
                 GenerarInformeFacturaIndividual(true);
             }
+            else if (rbEntreFechas.Checked)
+            {
+                GenerarInformeEntreFechas();
+            }
+            else if (rbAgrupadoClientes.Checked)
+            {
+                GenerarInformeAgrupadoClientes();
+            }
         }
 
-        private void GenerarInformeFacturaIndividual(bool conRetencion)
+        private void GenerarInformeFacturaIndividual(bool conRetencion) 
         {
             if (_idFacturaSeleccionada == null || _facturaSeleccionada == null)
             {
@@ -146,6 +145,158 @@ namespace FacturacionDAM.Formularios
 
             var report = new StiReport();
             report.Load(reportPath);
+            report.RegData("vista_facturas_emitidas", tabla.LaTabla);
+            report.Show();
+        }
+
+        private void GenerarInformeEntreFechas()
+        {
+            // Verificar conexión a la base de datos
+            if (Program.appDAM.LaConexion == null)
+            {
+                MessageBox.Show("No hay conexión a la base de datos.",
+                    "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!Program.appDAM.conectado)
+            {
+                MessageBox.Show("La conexión a la base de datos no está abierta.",
+                    "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Validar que la fecha de inicio no sea posterior a la fecha de fin
+            if (fechaIni.Value > fechaFin.Value)
+            {
+                MessageBox.Show("La fecha de inicio no puede ser posterior a la fecha de fin.",
+                    "Fechas inválidas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Usar la vista con filtro por rango de fechas
+            string sql = $@"SELECT * FROM vista_facturas_emitidas 
+                           WHERE fecha >= '{fechaIni.Value:yyyy-MM-dd}' 
+                           AND fecha <= '{fechaFin.Value:yyyy-MM-dd}'
+                           ORDER BY fecha, numerofac";
+
+            var tabla = new Tabla(Program.appDAM.LaConexion);
+
+            try
+            {
+                if (!tabla.InicializarDatos(sql))
+                {
+                    MessageBox.Show($"No se pudieron cargar los datos de las facturas.\n\nÚltimo error registrado: {Program.appDAM.ultimoError}",
+                        "Error al cargar datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al ejecutar la consulta SQL:\n\n{ex.Message}",
+                    "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (tabla.LaTabla.Rows.Count == 0)
+            {
+                MessageBox.Show("No se encontraron facturas en el rango de fechas seleccionado.",
+                    "Sin datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            string reportPath = Path.Combine(Application.StartupPath, "Informes", "ReporteListadoFechas.mrt");
+
+            if (!File.Exists(reportPath))
+            {
+                MessageBox.Show($"No se encontró el archivo de informe:\n{reportPath}",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var report = new StiReport();
+            report.Load(reportPath);
+
+            // Pasar las variables de fecha al informe
+            report.Dictionary.Variables["vFechaInicio"].Value = fechaIni.Value.ToString("dd/MM/yyyy");
+            report.Dictionary.Variables["vFechaFin"].Value = fechaFin.Value.ToString("dd/MM/yyyy");
+
+            report.RegData("vista_facturas_emitidas", tabla.LaTabla);
+            report.Show();
+        }
+
+        private void GenerarInformeAgrupadoClientes()
+        {
+            // Verificar conexión a la base de datos
+            if (Program.appDAM.LaConexion == null)
+            {
+                MessageBox.Show("No hay conexión a la base de datos.",
+                    "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!Program.appDAM.conectado)
+            {
+                MessageBox.Show("La conexión a la base de datos no está abierta.",
+                    "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Validar que la fecha de inicio no sea posterior a la fecha de fin
+            if (fechaIni.Value > fechaFin.Value)
+            {
+                MessageBox.Show("La fecha de inicio no puede ser posterior a la fecha de fin.",
+                    "Fechas inválidas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Usar la vista con filtro por rango de fechas
+            string sql = $@"SELECT * FROM vista_facturas_emitidas 
+                           WHERE fecha >= '{fechaIni.Value:yyyy-MM-dd}' 
+                           AND fecha <= '{fechaFin.Value:yyyy-MM-dd}'
+                           ORDER BY cliente_nombre, fecha, numerofac";
+
+            var tabla = new Tabla(Program.appDAM.LaConexion);
+
+            try
+            {
+                if (!tabla.InicializarDatos(sql))
+                {
+                    MessageBox.Show($"No se pudieron cargar los datos de las facturas.\n\nÚltimo error registrado: {Program.appDAM.ultimoError}",
+                        "Error al cargar datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al ejecutar la consulta SQL:\n\n{ex.Message}",
+                    "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (tabla.LaTabla.Rows.Count == 0)
+            {
+                MessageBox.Show("No se encontraron facturas en el rango de fechas seleccionado.",
+                    "Sin datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            string reportPath = Path.Combine(Application.StartupPath, "Informes", "ReporteListadoClientes.mrt");
+
+            if (!File.Exists(reportPath))
+            {
+                MessageBox.Show($"No se encontró el archivo de informe:\n{reportPath}",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var report = new StiReport();
+            report.Load(reportPath);
+
+            // Pasar las variables de fecha al informe
+            report.Dictionary.Variables["vFechaInicio"].Value = fechaIni.Value.ToString("dd/MM/yyyy");
+            report.Dictionary.Variables["vFechaFin"].Value = fechaFin.Value.ToString("dd/MM/yyyy");
+
             report.RegData("vista_facturas_emitidas", tabla.LaTabla);
             report.Show();
         }

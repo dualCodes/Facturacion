@@ -106,9 +106,9 @@
             rbFacturaConRetencion.Font = new Font("Segoe UI", 9F);
             rbFacturaConRetencion.Location = new Point(20, 145);
             rbFacturaConRetencion.Name = "rbFacturaConRetencion";
-            rbFacturaConRetencion.Size = new Size(276, 19);
+            rbFacturaConRetencion.Size = new Size(222, 19);
             rbFacturaConRetencion.TabIndex = 3;
-            rbFacturaConRetencion.Text = "Factura seleccionada CON retenciones (IRPF)";
+            rbFacturaConRetencion.Text = "Factura seleccionada con retenciones";
             rbFacturaConRetencion.UseVisualStyleBackColor = true;
             rbFacturaConRetencion.CheckedChanged += rbTipoInforme_CheckedChanged;
             // 
@@ -118,9 +118,9 @@
             rbFacturaSinRetencion.Font = new Font("Segoe UI", 9F);
             rbFacturaSinRetencion.Location = new Point(20, 110);
             rbFacturaSinRetencion.Name = "rbFacturaSinRetencion";
-            rbFacturaSinRetencion.Size = new Size(260, 19);
+            rbFacturaSinRetencion.Size = new Size(217, 19);
             rbFacturaSinRetencion.TabIndex = 2;
-            rbFacturaSinRetencion.Text = "Factura seleccionada SIN retenciones (IRPF)";
+            rbFacturaSinRetencion.Text = "Factura seleccionada sin retenciones";
             rbFacturaSinRetencion.UseVisualStyleBackColor = true;
             rbFacturaSinRetencion.CheckedChanged += rbTipoInforme_CheckedChanged;
             // 
@@ -130,9 +130,9 @@
             rbAgrupadoClientes.Font = new Font("Segoe UI", 9F);
             rbAgrupadoClientes.Location = new Point(20, 65);
             rbAgrupadoClientes.Name = "rbAgrupadoClientes";
-            rbAgrupadoClientes.Size = new Size(381, 19);
+            rbAgrupadoClientes.Size = new Size(258, 19);
             rbAgrupadoClientes.TabIndex = 1;
-            rbAgrupadoClientes.Text = "Facturas entre fechas AGRUPADAS POR CLIENTES (con totales)";
+            rbAgrupadoClientes.Text = "Facturas entre fechas agrupadas por clientes";
             rbAgrupadoClientes.UseVisualStyleBackColor = true;
             rbAgrupadoClientes.CheckedChanged += rbTipoInforme_CheckedChanged;
             // 
@@ -143,10 +143,10 @@
             rbEntreFechas.Font = new Font("Segoe UI", 9F);
             rbEntreFechas.Location = new Point(20, 30);
             rbEntreFechas.Name = "rbEntreFechas";
-            rbEntreFechas.Size = new Size(302, 19);
+            rbEntreFechas.Size = new Size(136, 19);
             rbEntreFechas.TabIndex = 0;
             rbEntreFechas.TabStop = true;
-            rbEntreFechas.Text = "Facturas entre fechas (con totales bases/cuotas/total)";
+            rbEntreFechas.Text = "Facturas entre fechas";
             rbEntreFechas.UseVisualStyleBackColor = true;
             rbEntreFechas.CheckedChanged += rbTipoInforme_CheckedChanged;
             // 
