@@ -31,15 +31,17 @@ namespace FacturacionDAM.Formularios
 
         private void ActualizarEstadoControles()
         {
-            if (_idFacturaSeleccionada == null)
-            {
-                btnInforme.Enabled = false;
-                btnInforme.Text = "Seleccione una factura primero";
-            }
-            else
+            // Habilitar el botón solo para los informes de factura seleccionada (implementados)
+            // Los informes por fechas aún no están implementados
+            if (rbFacturaSinRetencion.Checked || rbFacturaConRetencion.Checked)
             {
                 btnInforme.Enabled = true;
                 btnInforme.Text = "Generar Informe";
+            }
+            else
+            {
+                btnInforme.Enabled = false;
+                btnInforme.Text = "Informe no disponible";
             }
         }
 
