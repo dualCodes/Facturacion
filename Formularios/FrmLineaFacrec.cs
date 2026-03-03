@@ -16,9 +16,6 @@ namespace FacturacionDAM.Formularios
         private Tabla _tabla;
         private BindingSource _bs;
 
-        private Tabla _tablaProductos;
-        private BindingSource _bsProductos;
-
         private int _idFactura = -1;
         private bool _modoEdicion = false;
 
@@ -41,21 +38,13 @@ namespace FacturacionDAM.Formularios
         #region Eventos y botones
         private void FrmLineaFacrec_Load(object sender, EventArgs e)
         {
-            CargarProductos();
             PrepararBindings();
-
-            FrmSeleccionarEmisorProductoSiEdicion();
 
             InitLineaFactura();
 
             RecalcularLinea();
         }
 
-
-        private void BtnProducto_Click(object sender, EventArgs e)
-        {
-            TrasladarDatosProducto();
-        }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
@@ -125,25 +114,6 @@ namespace FacturacionDAM.Formularios
         }
 
         /// <summary>
-        /// Si estamos en modo edicion y la linea de factura tenia seleccionado un producto,
-        /// hago que se muestre en el combobox
-        /// </summary>
-        private void FrmSeleccionarEmisorProductoSiEdicion()
-        {
-            if (!_modoEdicion)
-                return;
-
-            if (!(_bs.Current is DataRowView row))
-                return;
-
-            if (row["idproducto"] == DBNull.Value)
-                return;
-
-            int idProducto = Convert.ToInt32(row["idproducto"]);
-            cbProducto.SelectedValue = idProducto;
-        }
-
-        /// <summary>
         /// Asocia controles con las fuentes de datos
         /// </summary>
         private void PrepararBindings()
@@ -162,7 +132,6 @@ namespace FacturacionDAM.Formularios
             row["idfacrec"] = _idFactura;
 
             //Bindings principales
-            cbProducto.DataBindings.Add("SelectedValue", _bs, "idproducto", true, DataSourceUpdateMode.OnPropertyChanged, DBNull.Value);
             txtDescripcion.DataBindings.Add("Text", _bs, "descripcion", true, DataSourceUpdateMode.OnPropertyChanged, "");
             numPrecio.DataBindings.Add("Value", _bs, "precio", true, DataSourceUpdateMode.OnPropertyChanged, 0m);
             numTipoIva.DataBindings.Add("Value", _bs, "tipoiva", true, DataSourceUpdateMode.OnPropertyChanged, 0m);
@@ -194,53 +163,6 @@ namespace FacturacionDAM.Formularios
 
         }
 
-        /// <summary>
-        /// Carga los productos en el formulario de productos.
-        /// </summary>
-        private void CargarProductos()
-        {
-            _tablaProductos = new Tabla(Program.appDAM.LaConexion);
-
-            // Sentencia SQL select
-            string mSql = @"SELECT p.id, p.descripcion, p.preciounidad, p.activo as producto_activo,
-                            t.porcentaje as iva_porcentaje, t.activo as iva_activo FROM productos p
-                            LEFT JOIN tiposiva t ON t.id = p.idtipoiva ORDER BY p.descripcion";
-
-            if (!_tablaProductos.InicializarDatos(mSql))
-            {
-                MessageBox.Show("No se pudieron cargar los productos.",
-                    "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                DialogResult = DialogResult.Cancel;
-                Close();
-                return;
-            }
-
-            _bsProductos = new BindingSource { DataSource = _tablaProductos.LaTabla };
-            cbProducto.DataSource = _bsProductos;
-            cbProducto.DisplayMember = "descripcion";
-            cbProducto.ValueMember = "id";
-            cbProducto.SelectedIndex = -1;
-        }
-
-        /// <summary>
-        /// Traslada a la linea de factura los datos del producto seleccionado.
-        /// </summary>
-        private void TrasladarDatosProducto()
-        {
-            if (!(_bsProductos.Current is DataRowView row))
-                return;
-
-            //Precio
-            numPrecio.Value = Convert.ToDecimal(row["preciounidad"]);
-
-            //IVA
-            numTipoIva.Value = Convert.ToDecimal(row["iva_porcentaje"]);
-
-            //Descripcion
-            txtDescripcion.Text = row["descripcion"].ToString();
-        }
-
         private void ForzarNoNulosLinea()
         {
             if (!(_bs.Current is DataRowView row))
@@ -263,28 +185,21 @@ namespace FacturacionDAM.Formularios
                 return false;
             }
 
-            // Validación 1: ID no nulo o menor o igual a cero
-            if (row["idproducto"] == DBNull.Value || Convert.ToInt32(row["idproducto"]) <= 0)
-            {
-                MessageBox.Show("Debe seleccionar un producto valido.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
-            // Validación 2: Descripcion no nulo ni cadena vacia
+            // Validación 1: Descripcion no nulo ni cadena vacia
             if (row["descripcion"] == DBNull.Value || string.IsNullOrWhiteSpace(row["descripcion"].ToString()))
             {
-                MessageBox.Show("La descripcion no puede estar vacia.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("La descripción no puede estar vacía.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
-            // Validación 3: Cantidad mayor que cero
+            // Validación 2: Cantidad mayor que cero
             if (row["cantidad"] == DBNull.Value || Convert.ToDecimal(row["cantidad"]) <= 0m)
             {
                 MessageBox.Show("La cantidad debe ser mayor que cero.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
-            // Validación 4: Tipo de IVA no nulo
+            // Validación 3: Tipo de IVA no nulo
             if (row["tipoiva"] == DBNull.Value)
             {
                 MessageBox.Show("El tipo de IVA no puede estar vacío.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);

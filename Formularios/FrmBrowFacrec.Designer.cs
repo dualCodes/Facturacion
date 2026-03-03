@@ -144,7 +144,7 @@ namespace FacturacionDAM.Formularios
             label1.Name = "label1";
             label1.Size = new Size(278, 27);
             label1.TabIndex = 0;
-            label1.Text = "Clientes";
+            label1.Text = "Proveedores";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // pnGrid

@@ -135,7 +135,22 @@ namespace FacturacionDAM.Formularios
         /// </summary>
         private void tsBtnNew_Click(object sender, EventArgs e)
         {
-            if (_bsFacturas == null) return;
+            // Verificar que haya un proveedor seleccionado
+            if (_idProveedorSeleccionado == -1 || _bsProveedores?.Current == null)
+            {
+                MessageBox.Show(
+                    "Debe seleccionar un proveedor antes de crear una factura.",
+                    "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (_bsFacturas == null || _tablaFacturas == null)
+            {
+                MessageBox.Show(
+                    "Error al inicializar las facturas. Por favor, recargue el formulario.",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             _bsFacturas.AddNew();
 
@@ -152,10 +167,15 @@ namespace FacturacionDAM.Formularios
                 nuevoIdFactura = frm.idFactura;
                 _tablaFacturas.Refrescar();
             }
+            else
+            {
+                // Si el usuario canceló, remover la fila nueva agregada
+                _bsFacturas.CancelEdit();
+            }
 
             CargarFacturasProveedorYAnyo(_year.CurrentYear);
 
-            if (nuevoIdFactura != -1)
+            if (nuevoIdFactura != -1 && _bsFacturas != null)
             {
                 int idx = _bsFacturas.Find("id", nuevoIdFactura);
                 if (idx >= 0)
@@ -168,6 +188,14 @@ namespace FacturacionDAM.Formularios
         /// </summary>
         private void tsBtnEdit_Click(object sender, EventArgs e)
         {
+            if (_bsFacturas == null || _bsFacturas.Current == null)
+            {
+                MessageBox.Show(
+                    "No hay ninguna factura seleccionada.",
+                    "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (_bsFacturas.Current is DataRowView)
             {
                 DataRowView row = (DataRowView)_bsFacturas.Current;
@@ -184,19 +212,28 @@ namespace FacturacionDAM.Formularios
 
                 CargarFacturasProveedorYAnyo(_year.CurrentYear);
 
-                int idx = _bsFacturas.Find("id", idFacrec);
-                if (idx >= 0)
-                    _bsFacturas.Position = idx;
-
+                if (_bsFacturas != null)
+                {
+                    int idx = _bsFacturas.Find("id", idFacrec);
+                    if (idx >= 0)
+                        _bsFacturas.Position = idx;
+                }
             }
         }
 
         /// <summary>
         /// Evento clic del botón para eliminar la factura seleccionada.
         /// </summary>
-
         private void tsBtnDelete_Click(object sender, EventArgs e)
         {
+            if (_bsFacturas == null || _bsFacturas.Current == null)
+            {
+                MessageBox.Show(
+                    "No hay ninguna factura seleccionada.",
+                    "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (!(_bsFacturas.Current is DataRowView row)) return;
 
             if (MessageBox.Show("¿Eliminar la factura seleccionada?\nSe eliminarán también sus líneas.",
@@ -211,7 +248,7 @@ namespace FacturacionDAM.Formularios
             tFac.EjecutarComando("DELETE FROM facrec WHERE id=@id",
                 new() { { "@id", idFacrec } });
 
-            // 3. Recargar
+            // Recargar
             CargarFacturasProveedorYAnyo(_year.CurrentYear);
         }
 
@@ -311,11 +348,18 @@ namespace FacturacionDAM.Formularios
         /// <param name="aAnho">Año de las facturas a cargar, para la empresa y proveedor seleccionado.</param>
         private void CargarFacturasProveedorYAnyo(int aAnho)
         {
-            if (!(_bsProveedores.Current is DataRowView prov))
+            if (!(_bsProveedores?.Current is DataRowView prov))
             {
+                // No hay proveedor seleccionado, limpiar la vista
+                _bsFacturas = null;
+                _tablaFacturas = null;
+                _idProveedorSeleccionado = -1;
                 dgFacturas.DataSource = null;
                 tsLbNumReg.Text = "Facturas: 0";
-                lbHeadFacrec.Text = "FACTURAS";
+                tsLbBase.Text = "Base: $0,00";
+                tsLbCuota.Text = "Cuota: $0,00";
+                tsLbTotal.Text = "Total: $0,00";
+                lbHeadFacrec.Text = "FACTURAS - Seleccione un proveedor";
                 return;
             }
 

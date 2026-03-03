@@ -471,7 +471,7 @@ namespace FacturacionDAM.Formularios
 
             dgLineasFactura.Columns["id"].Visible = false;
             dgLineasFactura.Columns["idfacrec"].Visible = false;
-            dgLineasFactura.Columns["idproducto"].Visible = false;
+            //dgLineasFactura.Columns["idproducto"].Visible = false;
 
             dgLineasFactura.Columns["descripcion"].HeaderText = "Descripción";
             dgLineasFactura.Columns["cantidad"].HeaderText = "Cantidad";

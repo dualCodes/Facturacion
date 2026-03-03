@@ -324,6 +324,7 @@ namespace FacturacionDAM.Formularios
             gbProducto.TabIndex = 5;
             gbProducto.TabStop = false;
             gbProducto.Text = "Producto (opcional)";
+            gbProducto.Visible = false;
             // 
             // BtnProducto
             // 
@@ -338,7 +339,6 @@ namespace FacturacionDAM.Formularios
             BtnProducto.Text = "Trasladar";
             BtnProducto.TextAlign = ContentAlignment.MiddleRight;
             BtnProducto.UseVisualStyleBackColor = true;
-            BtnProducto.Click += BtnProducto_Click;
             // 
             // label1
             // 
