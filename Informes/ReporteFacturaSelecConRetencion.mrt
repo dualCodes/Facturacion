@@ -78,36 +78,38 @@
     <Page1 Ref="6" type="Page" isKey="true">
       <Border>None;Black;2;Solid;False;4;Black</Border>
       <Brush>Transparent</Brush>
-      <Components isList="true" count="6">
+      <Components isList="true" count="4">
         <ReportTitle Ref="7" type="ReportTitleBand" isKey="true">
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,0.4,19,6.4</ClientRectangle>
+          <ClientRectangle>0,0.4,19,5.4</ClientRectangle>
           <Components isList="true" count="4">
             <Text1 Ref="8" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>0.4,0.4,5.2,1.2</ClientRectangle>
+              <ClientRectangle>0,0,8,1.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>Arial,8</Font>
+              <Font>Arial,16,Bold</Font>
               <Name>Text1</Name>
               <Page isRef="6" />
               <Parent isRef="7" />
-              <Text>FACTURA
-Fecha: {vista_facturas_emitidas.fecha}
-Nº: {vista_facturas_emitidas.numerofac}</Text>
-              <TextBrush>Black</TextBrush>
+              <Text>FACTURA Nº {vista_facturas_emitidas.numerofac}
+Fecha: {vista_facturas_emitidas.fecha.ToString("dd/MM/yyyy")}</Text>
+              <TextBrush>[128:0:0]</TextBrush>
               <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
             </Text1>
             <Text2 Ref="9" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>11.8,0.4,6.8,4</ClientRectangle>
+              <Border>All;[150:150:150];1;Solid;False;4;Black</Border>
+              <Brush>[245:245:245]</Brush>
+              <ClientRectangle>10,0.2,9,2.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>Arial,8</Font>
+              <Font>Arial,9</Font>
+              <Margins>0.2,0.2,0.2,0.2</Margins>
               <Name>Text2</Name>
               <Page isRef="6" />
               <Parent isRef="7" />
-              <Text>EMISOR
+              <Text>DATOS DEL EMISOR:
 Nombre: {vista_facturas_emitidas.emisor_nombre}
 NIF/CIF: {vista_facturas_emitidas.emisor_nif}
 Domicilio: {vista_facturas_emitidas.emisor_domicilio}
@@ -117,15 +119,17 @@ Teléfono: {vista_facturas_emitidas.emisor_telefono}</Text>
               <Type>Expression</Type>
             </Text2>
             <Text3 Ref="10" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>0.4,2.4,8.2,2</ClientRectangle>
+              <Border>All;[150:150:150];1;Solid;False;4;Black</Border>
+              <Brush>[250:250:250]</Brush>
+              <ClientRectangle>0,2.2,9,2</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>Arial,8</Font>
+              <Font>Arial,9</Font>
+              <Margins>0.2,0.2,0.2,0.2</Margins>
               <Name>Text3</Name>
               <Page isRef="6" />
               <Parent isRef="7" />
-              <Text>CLIENTE
+              <Text>DATOS DEL CLIENTE:
 Nombre: {vista_facturas_emitidas.cliente_nombre}
 NIF/CIF: {vista_facturas_emitidas.cliente_nif}
 Dirección: {vista_facturas_emitidas.cliente_domicilio}, {vista_facturas_emitidas.cliente_cp}, {vista_facturas_emitidas.cliente_poblacion}
@@ -135,15 +139,16 @@ Teléfono: {vista_facturas_emitidas.cliente_telefono}</Text>
             </Text3>
             <Text4 Ref="11" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>0.4,5,18.2,0.6</ClientRectangle>
+              <ClientRectangle>10,3.2,9,1</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>Arial,8</Font>
+              <Font>Arial,9,Italic</Font>
               <Name>Text4</Name>
               <Page isRef="6" />
               <Parent isRef="7" />
-              <Text>DESCRIPCIÓN: {vista_facturas_emitidas.descripfacemi}</Text>
-              <TextBrush>Black</TextBrush>
+              <Text>Concepto de Facturación:
+{vista_facturas_emitidas.descripfacemi}</Text>
+              <TextBrush>[100:100:100]</TextBrush>
               <Type>Expression</Type>
             </Text4>
           </Components>
@@ -155,91 +160,102 @@ Teléfono: {vista_facturas_emitidas.cliente_telefono}</Text>
         </ReportTitle>
         <Header Ref="12" type="HeaderBand" isKey="true">
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,7.6,19,0.6</ClientRectangle>
+          <ClientRectangle>0,6.6,19,0.8</ClientRectangle>
           <Components isList="true" count="6">
             <Text5 Ref="13" type="Text" isKey="true">
-              <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>Transparent</Brush>
-              <ClientRectangle>0,0,6,0.6</ClientRectangle>
+              <Border>Top, Bottom;[50:50:50];2;Solid;False;4;Black;True</Border>
+              <Brush>[50:50:50]</Brush>
+              <ClientRectangle>0,0,7,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>Arial,8</Font>
+              <Font>Arial,9.75,Bold</Font>
               <Name>Text5</Name>
               <Page isRef="6" />
               <Parent isRef="12" />
-              <Text>Descripcion</Text>
-              <TextBrush>Black</TextBrush>
+              <Text>Descripción del Producto/Servicio</Text>
+              <TextBrush>White</TextBrush>
               <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
             </Text5>
             <Text6 Ref="14" type="Text" isKey="true">
-              <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>Transparent</Brush>
-              <ClientRectangle>6,0,2.8,0.6</ClientRectangle>
+              <Border>Top, Bottom;[50:50:50];2;Solid;False;4;Black;True</Border>
+              <Brush>[50:50:50]</Brush>
+              <ClientRectangle>7,0,2.5,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>Arial,8</Font>
+              <Font>Arial,9.75,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
               <Name>Text6</Name>
               <Page isRef="6" />
               <Parent isRef="12" />
-              <Text>Precio</Text>
-              <TextBrush>Black</TextBrush>
+              <Text>Precio Ud.</Text>
+              <TextBrush>White</TextBrush>
               <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
             </Text6>
             <Text7 Ref="15" type="Text" isKey="true">
-              <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>Transparent</Brush>
-              <ClientRectangle>8.8,0,2.2,0.6</ClientRectangle>
+              <Border>Top, Bottom;[50:50:50];2;Solid;False;4;Black;True</Border>
+              <Brush>[50:50:50]</Brush>
+              <ClientRectangle>9.5,0,2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>Arial,8</Font>
+              <Font>Arial,9.75,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
               <Name>Text7</Name>
               <Page isRef="6" />
               <Parent isRef="12" />
-              <Text>Unidad</Text>
-              <TextBrush>Black</TextBrush>
+              <Text>Unidades</Text>
+              <TextBrush>White</TextBrush>
               <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
             </Text7>
             <Text8 Ref="16" type="Text" isKey="true">
-              <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>Transparent</Brush>
-              <ClientRectangle>11,0,2.2,0.6</ClientRectangle>
+              <Border>Top, Bottom;[50:50:50];2;Solid;False;4;Black;True</Border>
+              <Brush>[50:50:50]</Brush>
+              <ClientRectangle>11.5,0,2.5,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>Arial,8</Font>
+              <Font>Arial,9.75,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
               <Name>Text8</Name>
               <Page isRef="6" />
               <Parent isRef="12" />
               <Text>Tipo IVA (%)</Text>
-              <TextBrush>Black</TextBrush>
+              <TextBrush>White</TextBrush>
               <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
             </Text8>
             <Text9 Ref="17" type="Text" isKey="true">
-              <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>Transparent</Brush>
-              <ClientRectangle>13.2,0,3.4,0.6</ClientRectangle>
+              <Border>Top, Bottom;[50:50:50];2;Solid;False;4;Black;True</Border>
+              <Brush>[50:50:50]</Brush>
+              <ClientRectangle>14,0,2.5,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>Arial,8</Font>
+              <Font>Arial,9.75,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
               <Name>Text9</Name>
               <Page isRef="6" />
               <Parent isRef="12" />
-              <Text>Cuota</Text>
-              <TextBrush>Black</TextBrush>
+              <Text>Cuota IVA</Text>
+              <TextBrush>White</TextBrush>
               <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
             </Text9>
             <Text10 Ref="18" type="Text" isKey="true">
-              <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>Transparent</Brush>
-              <ClientRectangle>16.6,0,2.4,0.6</ClientRectangle>
+              <Border>Top, Bottom;[50:50:50];2;Solid;False;4;Black;True</Border>
+              <Brush>[50:50:50]</Brush>
+              <ClientRectangle>16.5,0,2.5,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>Arial,8</Font>
+              <Font>Arial,9.75,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
               <Name>Text10</Name>
               <Page isRef="6" />
               <Parent isRef="12" />
-              <Text>Total</Text>
-              <TextBrush>Black</TextBrush>
+              <Text>Total Línea</Text>
+              <TextBrush>White</TextBrush>
               <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
             </Text10>
           </Components>
           <Conditions isList="true" count="0" />
@@ -251,148 +267,302 @@ Teléfono: {vista_facturas_emitidas.cliente_telefono}</Text>
         <Data Ref="19" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
           <BusinessObjectGuid isNull="true" />
-          <ClientRectangle>0,9,19,0.6</ClientRectangle>
+          <ClientRectangle>0,8.2,19,0.8</ClientRectangle>
           <Components isList="true" count="6">
             <Text11 Ref="20" type="Text" isKey="true">
-              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Border>Bottom;[200:200:200];1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>0,0,6,0.6</ClientRectangle>
+              <ClientRectangle>0,0,7,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>Arial,8</Font>
+              <Font>Arial,9</Font>
               <Name>Text11</Name>
               <Page isRef="6" />
               <Parent isRef="19" />
               <Text>{vista_facturas_emitidas.descriplinea}</Text>
               <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
             </Text11>
             <Text12 Ref="21" type="Text" isKey="true">
-              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Border>Bottom;[200:200:200];1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>6,0,2.8,0.6</ClientRectangle>
+              <ClientRectangle>7,0,2.5,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>Arial,8</Font>
+              <Font>Arial,9</Font>
+              <HorAlignment>Right</HorAlignment>
               <Name>Text12</Name>
               <Page isRef="6" />
               <Parent isRef="19" />
               <Text>{vista_facturas_emitidas.precio}</Text>
               <TextBrush>Black</TextBrush>
+              <TextFormat Ref="22" type="CurrencyFormat" isKey="true">
+                <DecimalDigits>2</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>8</NegativePattern>
+                <PositivePattern>3</PositivePattern>
+                <Symbol>€</Symbol>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
             </Text12>
-            <Text13 Ref="22" type="Text" isKey="true">
-              <Border>All;Black;1;Solid;False;4;Black</Border>
+            <Text13 Ref="23" type="Text" isKey="true">
+              <Border>Bottom;[200:200:200];1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>8.8,0,2.2,0.6</ClientRectangle>
+              <ClientRectangle>9.5,0,2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>Arial,8</Font>
+              <Font>Arial,9</Font>
+              <HorAlignment>Center</HorAlignment>
               <Name>Text13</Name>
               <Page isRef="6" />
               <Parent isRef="19" />
               <Text>{vista_facturas_emitidas.cantidad}</Text>
               <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
             </Text13>
-            <Text14 Ref="23" type="Text" isKey="true">
-              <Border>All;Black;1;Solid;False;4;Black</Border>
+            <Text14 Ref="24" type="Text" isKey="true">
+              <Border>Bottom;[200:200:200];1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>11,0,2.2,0.6</ClientRectangle>
+              <ClientRectangle>11.5,0,2.5,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>Arial,8</Font>
+              <Font>Arial,9</Font>
+              <HorAlignment>Center</HorAlignment>
               <Name>Text14</Name>
               <Page isRef="6" />
               <Parent isRef="19" />
               <Text>{vista_facturas_emitidas.tipoiva}</Text>
               <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
             </Text14>
-            <Text15 Ref="24" type="Text" isKey="true">
-              <Border>All;Black;1;Solid;False;4;Black</Border>
+            <Text15 Ref="25" type="Text" isKey="true">
+              <Border>Bottom;[200:200:200];1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>13.2,0,3.4,0.6</ClientRectangle>
+              <ClientRectangle>14,0,2.5,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>Arial,8</Font>
+              <Font>Arial,9</Font>
+              <HorAlignment>Right</HorAlignment>
               <Name>Text15</Name>
               <Page isRef="6" />
               <Parent isRef="19" />
               <Text>{vista_facturas_emitidas.cuotalinea}</Text>
               <TextBrush>Black</TextBrush>
+              <TextFormat Ref="26" type="CurrencyFormat" isKey="true">
+                <DecimalDigits>2</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>8</NegativePattern>
+                <PositivePattern>3</PositivePattern>
+                <Symbol>€</Symbol>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
             </Text15>
-            <Text16 Ref="25" type="Text" isKey="true">
-              <Border>All;Black;1;Solid;False;4;Black</Border>
+            <Text16 Ref="27" type="Text" isKey="true">
+              <Border>Bottom;[200:200:200];1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>16.6,0,2.4,0.6</ClientRectangle>
+              <ClientRectangle>16.5,0,2.5,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>Arial,8</Font>
+              <Font>Arial,9</Font>
+              <HorAlignment>Right</HorAlignment>
               <Name>Text16</Name>
               <Page isRef="6" />
               <Parent isRef="19" />
               <Text>{vista_facturas_emitidas.totallinea}</Text>
               <TextBrush>Black</TextBrush>
+              <TextFormat Ref="28" type="CurrencyFormat" isKey="true">
+                <DecimalDigits>2</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>8</NegativePattern>
+                <PositivePattern>3</PositivePattern>
+                <Symbol>€</Symbol>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
             </Text16>
           </Components>
           <Conditions isList="true" count="0" />
           <DataSourceName>vista_facturas_emitidas</DataSourceName>
-          <EvenStyle>Blue Steel_Data1_Even Style</EvenStyle>
           <Expressions isList="true" count="0" />
           <FilterMode>Or</FilterMode>
           <Filters isList="true" count="0" />
           <Name>Data</Name>
-          <OddStyle>Blue Steel_Data1_Odd Style</OddStyle>
           <Page isRef="6" />
           <Parent isRef="6" />
           <Sort isList="true" count="0" />
         </Data>
-        <Footer Ref="26" type="FooterBand" isKey="true">
+        <Footer Ref="29" type="FooterBand" isKey="true">
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,10.4,19,9.6</ClientRectangle>
-          <Components isList="true" count="12">
-            <Text18 Ref="27" type="Text" isKey="true">
+          <ClientRectangle>0,9.8,19,5</ClientRectangle>
+          <Components isList="true" count="11">
+            <Text18 Ref="30" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>13.4,1.6,3.6,0.4</ClientRectangle>
+              <ClientRectangle>12.4,0.2,3.6,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>Arial,8</Font>
+              <Font>Arial,10,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
               <Name>Text18</Name>
               <Page isRef="6" />
-              <Parent isRef="26" />
-              <Text>Base:{vista_facturas_emitidas.basefacemi}</Text>
+              <Parent isRef="29" />
+              <Text>BASE IMPONIBLE:</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
             </Text18>
-            <Text19 Ref="28" type="Text" isKey="true">
+            <TextBaseVal Ref="31" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>13.4,2,3.6,0.4</ClientRectangle>
+              <ClientRectangle>16.5,0.2,2.5,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>Arial,8</Font>
+              <Font>Arial,10</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Name>TextBaseVal</Name>
+              <Page isRef="6" />
+              <Parent isRef="29" />
+              <Text>{vista_facturas_emitidas.basefacemi}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="32" type="CurrencyFormat" isKey="true">
+                <DecimalDigits>2</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>8</NegativePattern>
+                <PositivePattern>3</PositivePattern>
+                <Symbol>€</Symbol>
+              </TextFormat>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </TextBaseVal>
+            <Text19 Ref="33" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>12.4,0.8,3.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
               <Name>Text19</Name>
               <Page isRef="6" />
-              <Parent isRef="26" />
-              <Text>Cuota:{vista_facturas_emitidas.cuotafacemi}</Text>
+              <Parent isRef="29" />
+              <Text>CUOTA IVA:</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
             </Text19>
-            <Text20 Ref="29" type="Text" isKey="true">
+            <TextCuotaVal Ref="34" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>13.4,2.8,3.6,0.4</ClientRectangle>
+              <ClientRectangle>16.5,0.8,2.5,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>Arial,8</Font>
-              <Name>Text20</Name>
+              <Font>Arial,10</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Name>TextCuotaVal</Name>
               <Page isRef="6" />
-              <Parent isRef="26" />
-              <Text>Retención:{vista_facturas_emitidas.retencion}</Text>
+              <Parent isRef="29" />
+              <Text>{vista_facturas_emitidas.cuotafacemi}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="35" type="CurrencyFormat" isKey="true">
+                <DecimalDigits>2</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>8</NegativePattern>
+                <PositivePattern>3</PositivePattern>
+                <Symbol>€</Symbol>
+              </TextFormat>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </TextCuotaVal>
+            <TextRet Ref="36" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>10,1.4,6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Name>TextRet</Name>
+              <Page isRef="6" />
+              <Parent isRef="29" />
+              <Text>RETENCIÓN ({vista_facturas_emitidas.tiporet}%):</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
-            </Text20>
-            <ElectronicSignature1 Ref="30" type="Stimulsoft.Report.Components.StiElectronicSignature" isKey="true">
+              <VertAlignment>Center</VertAlignment>
+            </TextRet>
+            <TextRetVal Ref="37" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>0.4,3.6,9.8,2.8</ClientRectangle>
+              <ClientRectangle>16.5,1.4,2.5,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Description Ref="31" type="Stimulsoft.Report.Components.StiSignatureDescription" isKey="true" />
-              <Draw Ref="32" type="Stimulsoft.Report.Components.StiSignatureDraw" isKey="true">
+              <Expressions isList="true" count="0" />
+              <Font>Arial,10</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Name>TextRetVal</Name>
+              <Page isRef="6" />
+              <Parent isRef="29" />
+              <Text>{vista_facturas_emitidas.retencion}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="38" type="CurrencyFormat" isKey="true">
+                <DecimalDigits>2</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>8</NegativePattern>
+                <PositivePattern>3</PositivePattern>
+                <Symbol>€</Symbol>
+              </TextFormat>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </TextRetVal>
+            <Text20 Ref="39" type="Text" isKey="true">
+              <Border>Top;[128:0:0];2;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>12.4,2.2,3.7,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,12,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Name>Text20</Name>
+              <Page isRef="6" />
+              <Parent isRef="29" />
+              <Text>TOTAL FACTURA:</Text>
+              <TextBrush>[128:0:0]</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text20>
+            <TextTotalVal Ref="40" type="Text" isKey="true">
+              <Border>Top;[128:0:0];2;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>16.5,2.2,2.5,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,12,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Name>TextTotalVal</Name>
+              <Page isRef="6" />
+              <Parent isRef="29" />
+              <Text>{vista_facturas_emitidas.totalfacemi}</Text>
+              <TextBrush>[128:0:0]</TextBrush>
+              <TextFormat Ref="41" type="CurrencyFormat" isKey="true">
+                <DecimalDigits>2</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>8</NegativePattern>
+                <PositivePattern>3</PositivePattern>
+                <Symbol>€</Symbol>
+              </TextFormat>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </TextTotalVal>
+            <Text21 Ref="42" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,1.2,7.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <Name>Text21</Name>
+              <Page isRef="6" />
+              <Parent isRef="29" />
+              <Text>Firma Electrónica:</Text>
+              <TextBrush>[100:100:100]</TextBrush>
+              <Type>Expression</Type>
+            </Text21>
+            <ElectronicSignature1 Ref="43" type="Stimulsoft.Report.Components.StiElectronicSignature" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,1.8,8,2.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Description Ref="44" type="Stimulsoft.Report.Components.StiSignatureDescription" isKey="true" />
+              <Draw Ref="45" type="Stimulsoft.Report.Components.StiSignatureDraw" isKey="true">
                 <Image>iVBORw0KGgoAAAANSUhEUgAAAuQAAADcCAYAAAA4ErSMAAAAAXNSR0IArs4c6QAAAARnQU1BAACx
 jwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAABCUSURBVHhe7d0tk+1GkgZgsYELDRcaGi40HGho
 ONDQ0HCZ4YWGAwcOXGi4cH/CQkPDS2cj150TdWuk81mSqlTPE1FhR3ffbp066uj35EmllgUAAAAA
@@ -430,7 +600,7 @@ sADAEOrK+Cx3gHxWr8Ewj+uqz1uv+35P72E81edPhHQA4GD5B1ll/LZeg+HVn79e9/2eHq85WFOf
 P+7qCQAHUhl/Tq/BsH4eezu+d/W67/eMctx5/sSdPDOU9/wCAgAupa6M9R4cztZ7wOr9+F416uPK
 gDvScUd1XJUcAA6UQUdl/DG9B8Pej+9VIz6us+7K+a6ojKuSA8CBRgw6Z+p9v3o/vlfl4xppNN+P
 xTGPJqvkI+03AAzn6j3He+k98PZ+fK8abV72qNXxNNp+A8CQMrjlulqA20vvgbf343vHKPOyy1GH
-I1bH0yj7DQDDyuCmd/w5vQfe3o/vXb0/vlHmjj+q9/0GgGFFaNCq8preA0rvx/eunh/f1cJ4yP3W
+I1bH0yj7DQDDyuCmd/55vQfe3o/vXb0/vlHmjj+q9/0GgGFFaNCq8preA0rvx/eunh/f1cJ4yP3W
 tgIADV0xNByp50AYej++d/X6+K76e6WXHAAau2poOFLvFcNeA2sr+fh6mpF99d+rMpT3tO8AMJyr
 h4aj9F4xvHog721G9iy/V73tOwAM6acJQsNRep4+cfVAHnq6k+RMv1e577/UnwAAHjNDUDtSr/vZ
 63G11FO1dob9Trnvn5dl+ar+JABw30zB4Qi5n721rfR6XK31cCfJGacV5b7HOwMAwIPckXMfvfaS
@@ -472,102 +642,27 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAK/we1
 L7+9VVhznAAAAABJRU5ErkJggg==</Image>
               </Draw>
               <Expressions isList="true" count="0" />
-              <Icon Ref="33" type="Stimulsoft.Report.Components.StiSignatureIcon" isKey="true" />
-              <Image Ref="34" type="Stimulsoft.Report.Components.StiSignatureImage" isKey="true" />
+              <Icon Ref="46" type="Stimulsoft.Report.Components.StiSignatureIcon" isKey="true" />
+              <Image Ref="47" type="Stimulsoft.Report.Components.StiSignatureImage" isKey="true" />
               <Name>ElectronicSignature1</Name>
               <Page isRef="6" />
-              <Parent isRef="26" />
-              <Text Ref="35" type="Stimulsoft.Report.Components.StiSignatureText" isKey="true" />
-              <Type Ref="36" type="Stimulsoft.Report.Components.StiSignatureType" isKey="true" />
+              <Parent isRef="29" />
+              <Text Ref="48" type="Stimulsoft.Report.Components.StiSignatureText" isKey="true" />
+              <Type Ref="49" type="Stimulsoft.Report.Components.StiSignatureType" isKey="true" />
             </ElectronicSignature1>
-            <Text17 Ref="37" type="Text" isKey="true">
+            <Text17 Ref="50" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>11.4,5.2,7.2,0.4</ClientRectangle>
+              <ClientRectangle>9.5,3.6,9.5,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>Arial,8</Font>
+              <Font>Arial,10,Bold</Font>
               <Name>Text17</Name>
               <Page isRef="6" />
-              <Parent isRef="26" />
+              <Parent isRef="29" />
               <Text>Cuenta bancaria:</Text>
-              <TextBrush>Black</TextBrush>
+              <TextBrush>[100:100:100]</TextBrush>
               <Type>Expression</Type>
             </Text17>
-            <Text21 Ref="38" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>0.4,3.2,7.2,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Font>Arial,8</Font>
-              <Name>Text21</Name>
-              <Page isRef="6" />
-              <Parent isRef="26" />
-              <Text>Firma electrónica:</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>Expression</Type>
-            </Text21>
-            <Text22 Ref="39" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>13.4,3.2,3.6,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Font>Arial,8</Font>
-              <Name>Text22</Name>
-              <Page isRef="6" />
-              <Parent isRef="26" />
-              <Text>Total:{vista_facturas_emitidas.totalfacemi}</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>Expression</Type>
-            </Text22>
-            <Text23 Ref="40" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>13.4,2.4,3.6,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Font>Arial,8</Font>
-              <Name>Text23</Name>
-              <Page isRef="6" />
-              <Parent isRef="26" />
-              <Text>Tipo de retención:{vista_facturas_emitidas.tiporet}</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>Expression</Type>
-            </Text23>
-            <StartPointPrimitive1 Ref="41" type="Stimulsoft.Report.Components.StiStartPointPrimitive" isKey="true">
-              <ClientRectangle>11.4,5.6,0,0</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Name>StartPointPrimitive1</Name>
-              <Page isRef="6" />
-              <Parent isRef="26" />
-              <ReferenceToGuid>d1c13ca674f24df2bb4f2771420b21a0</ReferenceToGuid>
-            </StartPointPrimitive1>
-            <EndPointPrimitive1 Ref="42" type="Stimulsoft.Report.Components.StiEndPointPrimitive" isKey="true">
-              <ClientRectangle>18.6,6.4,0,0</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Name>EndPointPrimitive1</Name>
-              <Page isRef="6" />
-              <Parent isRef="26" />
-              <ReferenceToGuid>d1c13ca674f24df2bb4f2771420b21a0</ReferenceToGuid>
-            </EndPointPrimitive1>
-            <StartPointPrimitive2 Ref="43" type="Stimulsoft.Report.Components.StiStartPointPrimitive" isKey="true">
-              <ClientRectangle>0.4,3.6,0,0</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Name>StartPointPrimitive2</Name>
-              <Page isRef="6" />
-              <Parent isRef="26" />
-              <ReferenceToGuid>e3a6f76feeea4aeba254a5d804f35549</ReferenceToGuid>
-            </StartPointPrimitive2>
-            <EndPointPrimitive2 Ref="44" type="Stimulsoft.Report.Components.StiEndPointPrimitive" isKey="true">
-              <ClientRectangle>10.2,6.4,0,0</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Name>EndPointPrimitive2</Name>
-              <Page isRef="6" />
-              <Parent isRef="26" />
-              <ReferenceToGuid>e3a6f76feeea4aeba254a5d804f35549</ReferenceToGuid>
-            </EndPointPrimitive2>
           </Components>
           <Conditions isList="true" count="0" />
           <Expressions isList="true" count="0" />
@@ -575,24 +670,6 @@ L7+9VVhznAAAAABJRU5ErkJggg==</Image>
           <Page isRef="6" />
           <Parent isRef="6" />
         </Footer>
-        <RectanglePrimitive1 Ref="45" type="RectanglePrimitive" isKey="true">
-          <ClientRectangle>11.4,16,7.2,0.8</ClientRectangle>
-          <Conditions isList="true" count="0" />
-          <Expressions isList="true" count="0" />
-          <Guid>d1c13ca674f24df2bb4f2771420b21a0</Guid>
-          <Name>RectanglePrimitive1</Name>
-          <Page isRef="6" />
-          <Parent isRef="6" />
-        </RectanglePrimitive1>
-        <RectanglePrimitive2 Ref="46" type="RectanglePrimitive" isKey="true">
-          <ClientRectangle>0.4,14,9.8,2.8</ClientRectangle>
-          <Conditions isList="true" count="0" />
-          <Expressions isList="true" count="0" />
-          <Guid>e3a6f76feeea4aeba254a5d804f35549</Guid>
-          <Name>RectanglePrimitive2</Name>
-          <Page isRef="6" />
-          <Parent isRef="6" />
-        </RectanglePrimitive2>
       </Components>
       <Conditions isList="true" count="0" />
       <Expressions isList="true" count="0" />
@@ -616,10 +693,10 @@ L7+9VVhznAAAAABJRU5ErkJggg==</Image>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
   <ReportAuthor>DSA ASD</ReportAuthor>
-  <ReportChanged>3/3/2026 3:53:51 PM</ReportChanged>
+  <ReportChanged>3/4/2026 9:40:47 PM</ReportChanged>
   <ReportCreated>3/3/2026 1:56:39 PM</ReportCreated>
-  <ReportFile>C:\Users\admin\Documents\ReporteFacturaSelecConRetencion.mrt</ReportFile>
-  <ReportGuid>eb7a247b8460457a9e406a191bb5616c</ReportGuid>
+  <ReportFile>C:\Users\admin\source\repos\Facturacion\Informes\ReporteFacturaSelecConRetencion.mrt</ReportFile>
+  <ReportGuid>0963c435f1f947a8ac883eef1989ffba</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2026.1.4.0</ReportVersion>
@@ -632,14 +709,13 @@ using Stimulsoft.Base.Drawing;
 using Stimulsoft.Report;
 using Stimulsoft.Report.Dialogs;
 using Stimulsoft.Report.Components;
-
 namespace Reports
 {
     public class Report : Stimulsoft.Report.StiReport
     {
         public Report()        {
             this.InitializeComponent();
-        }
+}
 
         #region StiReport Designer generated code - do not modify
 		#endregion StiReport Designer generated code - do not modify
@@ -647,204 +723,6 @@ namespace Reports
 }
 </Script>
   <ScriptLanguage>CSharp</ScriptLanguage>
-  <Styles isList="true" count="12">
-    <Blue_x0020_Steel_Report_Title1 Ref="47" type="Stimulsoft.Report.StiStyle" isKey="true">
-      <Border>None;[0:0:39];1;Solid;False;4;Black</Border>
-      <Brush>Transparent</Brush>
-      <CollectionName>Blue Steel</CollectionName>
-      <Conditions isList="true" count="1">
-        <Item41 Ref="48" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
-          <ComponentType>Text, Primitive, Image</ComponentType>
-          <Placement>ReportTitle</Placement>
-          <Type>ComponentType, Placement, PlacementNestedLevel</Type>
-        </Item41>
-      </Conditions>
-      <Font>Arial,14,Bold</Font>
-      <Name>Blue Steel_Report_Title1</Name>
-      <NegativeTextBrush>Red</NegativeTextBrush>
-      <TextBrush>[79:129:189]</TextBrush>
-    </Blue_x0020_Steel_Report_Title1>
-    <Blue_x0020_Steel_Report_Title2 Ref="49" type="Stimulsoft.Report.StiStyle" isKey="true">
-      <Border>None;[0:0:39];1;Solid;False;4;Black</Border>
-      <Brush>Transparent</Brush>
-      <CollectionName>Blue Steel</CollectionName>
-      <Conditions isList="true" count="1">
-        <Item43 Ref="50" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
-          <ComponentType>Text, Primitive, Image</ComponentType>
-          <OperationPlacementNestedLevel>GreaterThanOrEqualTo</OperationPlacementNestedLevel>
-          <Placement>ReportTitle</Placement>
-          <PlacementNestedLevel>2</PlacementNestedLevel>
-          <Type>ComponentType, Placement, PlacementNestedLevel</Type>
-        </Item43>
-      </Conditions>
-      <Font>Arial,10,Bold</Font>
-      <Name>Blue Steel_Report_Title2</Name>
-      <NegativeTextBrush>Red</NegativeTextBrush>
-      <TextBrush>[79:129:189]</TextBrush>
-    </Blue_x0020_Steel_Report_Title2>
-    <Blue_x0020_Steel_Report_Summary Ref="51" type="Stimulsoft.Report.StiStyle" isKey="true">
-      <Border>None;[0:0:39];1;Solid;False;4;Black</Border>
-      <Brush>Transparent</Brush>
-      <CollectionName>Blue Steel</CollectionName>
-      <Conditions isList="true" count="1">
-        <Item45 Ref="52" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
-          <ComponentType>Text, Primitive, Image</ComponentType>
-          <Placement>ReportSummary</Placement>
-          <Type>ComponentType, Placement</Type>
-        </Item45>
-      </Conditions>
-      <Font>Arial,10,Bold</Font>
-      <Name>Blue Steel_Report_Summary</Name>
-      <NegativeTextBrush>Red</NegativeTextBrush>
-      <TextBrush>[79:129:189]</TextBrush>
-    </Blue_x0020_Steel_Report_Summary>
-    <Blue_x0020_Steel_Page_Header Ref="53" type="Stimulsoft.Report.StiStyle" isKey="true">
-      <Border>None;[0:0:39];1;Solid;False;4;Black</Border>
-      <Brush>Transparent</Brush>
-      <CollectionName>Blue Steel</CollectionName>
-      <Conditions isList="true" count="1">
-        <Item47 Ref="54" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
-          <ComponentType>Text, Primitive, Image</ComponentType>
-          <Placement>PageHeader</Placement>
-          <Type>ComponentType, Placement</Type>
-        </Item47>
-      </Conditions>
-      <Font>Arial,10</Font>
-      <Name>Blue Steel_Page_Header</Name>
-      <NegativeTextBrush>Red</NegativeTextBrush>
-      <TextBrush>Black</TextBrush>
-    </Blue_x0020_Steel_Page_Header>
-    <Blue_x0020_Steel_Page_Footer Ref="55" type="Stimulsoft.Report.StiStyle" isKey="true">
-      <Border>None;[0:0:39];1;Solid;False;4;Black</Border>
-      <Brush>Transparent</Brush>
-      <CollectionName>Blue Steel</CollectionName>
-      <Conditions isList="true" count="1">
-        <Item49 Ref="56" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
-          <ComponentType>Text, Primitive, Image</ComponentType>
-          <Placement>PageFooter</Placement>
-          <Type>ComponentType, Placement</Type>
-        </Item49>
-      </Conditions>
-      <Font>Arial,10</Font>
-      <Name>Blue Steel_Page_Footer</Name>
-      <NegativeTextBrush>Red</NegativeTextBrush>
-      <TextBrush>Black</TextBrush>
-    </Blue_x0020_Steel_Page_Footer>
-    <Blue_x0020_Steel_Group_Header1 Ref="57" type="Stimulsoft.Report.StiStyle" isKey="true">
-      <Border>Top, Bottom;[0:0:39];1;Solid;False;4;Black</Border>
-      <Brush>Transparent</Brush>
-      <CollectionName>Blue Steel</CollectionName>
-      <Conditions isList="true" count="1">
-        <Item51 Ref="58" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
-          <ComponentType>Text, Primitive, Image</ComponentType>
-          <OperationPlacementNestedLevel>GreaterThanOrEqualTo</OperationPlacementNestedLevel>
-          <Placement>GroupHeader</Placement>
-          <Type>ComponentType, Placement, PlacementNestedLevel</Type>
-        </Item51>
-      </Conditions>
-      <Font>Arial,13,Bold</Font>
-      <Name>Blue Steel_Group_Header1</Name>
-      <NegativeTextBrush>Red</NegativeTextBrush>
-      <TextBrush>[79:129:189]</TextBrush>
-    </Blue_x0020_Steel_Group_Header1>
-    <Blue_x0020_Steel_Group_Footer1 Ref="59" type="Stimulsoft.Report.StiStyle" isKey="true">
-      <Border>Top, Bottom;[0:0:39];1;Solid;False;4;Black</Border>
-      <Brush>Transparent</Brush>
-      <CollectionName>Blue Steel</CollectionName>
-      <Conditions isList="true" count="1">
-        <Item53 Ref="60" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
-          <ComponentType>Text, Primitive, Image</ComponentType>
-          <Placement>GroupFooter</Placement>
-          <Type>ComponentType, Placement, PlacementNestedLevel</Type>
-        </Item53>
-      </Conditions>
-      <Font>Arial,9.75,Bold,Point,False,204</Font>
-      <Name>Blue Steel_Group_Footer1</Name>
-      <NegativeTextBrush>Red</NegativeTextBrush>
-      <TextBrush>[79:129:189]</TextBrush>
-    </Blue_x0020_Steel_Group_Footer1>
-    <Blue_x0020_Steel_Header1 Ref="61" type="Stimulsoft.Report.StiStyle" isKey="true">
-      <Border>Top, Bottom;[0:0:39];2;Solid;False;4;Black;True</Border>
-      <Brush>[79:129:189]</Brush>
-      <CollectionName>Blue Steel</CollectionName>
-      <Conditions isList="true" count="1">
-        <Item55 Ref="62" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
-          <ComponentType>Text, Primitive, Image</ComponentType>
-          <OperationPlacementNestedLevel>GreaterThanOrEqualTo</OperationPlacementNestedLevel>
-          <Placement>Header</Placement>
-          <Type>ComponentType, Placement, PlacementNestedLevel</Type>
-        </Item55>
-      </Conditions>
-      <Font>Arial,9.75,Bold,Point,False,204</Font>
-      <Name>Blue Steel_Header1</Name>
-      <NegativeTextBrush>Red</NegativeTextBrush>
-      <TextBrush>White</TextBrush>
-    </Blue_x0020_Steel_Header1>
-    <Blue_x0020_Steel_Data1 Ref="63" type="Stimulsoft.Report.StiStyle" isKey="true">
-      <Border>None;[0:0:39];1;Solid;False;4;Black</Border>
-      <Brush>Transparent</Brush>
-      <CollectionName>Blue Steel</CollectionName>
-      <Conditions isList="true" count="1">
-        <Item57 Ref="64" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
-          <ComponentType>Text, Primitive, Image, CheckBox</ComponentType>
-          <OperationPlacementNestedLevel>GreaterThanOrEqualTo</OperationPlacementNestedLevel>
-          <Placement>Data</Placement>
-          <Type>ComponentType, Placement, PlacementNestedLevel</Type>
-        </Item57>
-      </Conditions>
-      <Font>Arial,8</Font>
-      <Name>Blue Steel_Data1</Name>
-      <NegativeTextBrush>Red</NegativeTextBrush>
-      <TextBrush>[0:0:0]</TextBrush>
-    </Blue_x0020_Steel_Data1>
-    <Blue_x0020_Steel_Data1_Odd_x0020_Style Ref="65" type="Stimulsoft.Report.StiStyle" isKey="true">
-      <Border>None;[0:0:39];1;Solid;False;4;Black</Border>
-      <Brush>[255:255:255]</Brush>
-      <CollectionName>Blue Steel</CollectionName>
-      <Conditions isList="true" count="1">
-        <Item59 Ref="66" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
-          <OperationPlacementNestedLevel>GreaterThanOrEqualTo</OperationPlacementNestedLevel>
-          <Placement>DataOddStyle</Placement>
-          <Type>Placement, PlacementNestedLevel</Type>
-        </Item59>
-      </Conditions>
-      <Font>Arial,8</Font>
-      <Name>Blue Steel_Data1_Odd Style</Name>
-      <NegativeTextBrush>Red</NegativeTextBrush>
-      <TextBrush>[0:0:0]</TextBrush>
-    </Blue_x0020_Steel_Data1_Odd_x0020_Style>
-    <Blue_x0020_Steel_Data1_Even_x0020_Style Ref="67" type="Stimulsoft.Report.StiStyle" isKey="true">
-      <Border>None;[0:0:39];1;Solid;False;4;Black</Border>
-      <Brush>[216:216:216]</Brush>
-      <CollectionName>Blue Steel</CollectionName>
-      <Conditions isList="true" count="1">
-        <Item61 Ref="68" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
-          <OperationPlacementNestedLevel>GreaterThanOrEqualTo</OperationPlacementNestedLevel>
-          <Placement>DataEvenStyle</Placement>
-          <Type>Placement, PlacementNestedLevel</Type>
-        </Item61>
-      </Conditions>
-      <Font>Arial,8</Font>
-      <Name>Blue Steel_Data1_Even Style</Name>
-      <NegativeTextBrush>Red</NegativeTextBrush>
-      <TextBrush>[0:0:0]</TextBrush>
-    </Blue_x0020_Steel_Data1_Even_x0020_Style>
-    <Blue_x0020_Steel_Footer1 Ref="69" type="Stimulsoft.Report.StiStyle" isKey="true">
-      <Border>Top, Bottom;[0:0:39];2;Solid;False;4;Black</Border>
-      <Brush>White</Brush>
-      <CollectionName>Blue Steel</CollectionName>
-      <Conditions isList="true" count="1">
-        <Item63 Ref="70" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
-          <ComponentType>Text, Primitive, Image</ComponentType>
-          <Placement>Footer</Placement>
-          <Type>ComponentType, Placement, PlacementNestedLevel</Type>
-        </Item63>
-      </Conditions>
-      <Font>Arial,8.25,Bold,Point,False,204</Font>
-      <Name>Blue Steel_Footer1</Name>
-      <NegativeTextBrush>Red</NegativeTextBrush>
-      <TextBrush>Black</TextBrush>
-    </Blue_x0020_Steel_Footer1>
-  </Styles>
+  <Styles isList="true" count="0" />
   <UsePlatformDependentScript>False</UsePlatformDependentScript>
 </StiSerializer>
