@@ -66,13 +66,13 @@
               <ComponentStyle>Blue Steel_Report_Title1</ComponentStyle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>Arial,18,Bold</Font>
+              <Font>Arial,14,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Name>ReportTitleText</Name>
               <Page isRef="4" />
               <Parent isRef="5" />
               <Text>Listado de Facturas Emitidas</Text>
-              <TextBrush>[50:50:50]</TextBrush>
+              <TextBrush>[79:129:189]</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </ReportTitleText>
@@ -117,8 +117,8 @@
           <ClientRectangle>0,3.4,19,0.8</ClientRectangle>
           <Components isList="true" count="8">
             <HeaderText2 Ref="12" type="Text" isKey="true">
-              <Border>Top, Bottom;[50:50:50];2;Solid;False;4;Black;True</Border>
-              <Brush>[50:50:50]</Brush>
+              <Border>Top, Bottom;[0:0:39];2;Solid;False;4;Black;True</Border>
+              <Brush>[79:129:189]</Brush>
               <CanGrow>True</CanGrow>
               <ClientRectangle>0,0,1.6,0.8</ClientRectangle>
               <ComponentStyle>Blue Steel_Header1</ComponentStyle>
@@ -126,6 +126,7 @@
               <Expressions isList="true" count="0" />
               <Font>Arial,9.75,Bold,Point,False,204</Font>
               <GrowToHeight>True</GrowToHeight>
+              <HorAlignment>Center</HorAlignment>
               <Name>HeaderText2</Name>
               <Page isRef="4" />
               <Parent isRef="11" />
@@ -134,11 +135,10 @@
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
-              <HorAlignment>Center</HorAlignment>
             </HeaderText2>
             <HeaderText3 Ref="13" type="Text" isKey="true">
-              <Border>Top, Bottom;[50:50:50];2;Solid;False;4;Black;True</Border>
-              <Brush>[50:50:50]</Brush>
+              <Border>Top, Bottom;[0:0:39];2;Solid;False;4;Black;True</Border>
+              <Brush>[79:129:189]</Brush>
               <CanGrow>True</CanGrow>
               <ClientRectangle>1.6,0,2.2,0.8</ClientRectangle>
               <ComponentStyle>Blue Steel_Header1</ComponentStyle>
@@ -146,6 +146,7 @@
               <Expressions isList="true" count="0" />
               <Font>Arial,9.75,Bold,Point,False,204</Font>
               <GrowToHeight>True</GrowToHeight>
+              <HorAlignment>Center</HorAlignment>
               <Name>HeaderText3</Name>
               <Page isRef="4" />
               <Parent isRef="11" />
@@ -154,11 +155,10 @@
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
-              <HorAlignment>Center</HorAlignment>
             </HeaderText3>
             <HeaderText12 Ref="14" type="Text" isKey="true">
-              <Border>Top, Bottom;[50:50:50];2;Solid;False;4;Black;True</Border>
-              <Brush>[50:50:50]</Brush>
+              <Border>Top, Bottom;[0:0:39];2;Solid;False;4;Black;True</Border>
+              <Brush>[79:129:189]</Brush>
               <CanGrow>True</CanGrow>
               <ClientRectangle>3.8,0,4.8,0.8</ClientRectangle>
               <ComponentStyle>Blue Steel_Header1</ComponentStyle>
@@ -176,8 +176,8 @@
               <VertAlignment>Center</VertAlignment>
             </HeaderText12>
             <HeaderText5 Ref="15" type="Text" isKey="true">
-              <Border>Top, Bottom;[50:50:50];2;Solid;False;4;Black;True</Border>
-              <Brush>[50:50:50]</Brush>
+              <Border>Top, Bottom;[0:0:39];2;Solid;False;4;Black;True</Border>
+              <Brush>[79:129:189]</Brush>
               <CanGrow>True</CanGrow>
               <ClientRectangle>8.6,0,2.4,0.8</ClientRectangle>
               <ComponentStyle>Blue Steel_Header1</ComponentStyle>
@@ -185,6 +185,7 @@
               <Expressions isList="true" count="0" />
               <Font>Arial,9.75,Bold,Point,False,204</Font>
               <GrowToHeight>True</GrowToHeight>
+              <HorAlignment>Right</HorAlignment>
               <Name>HeaderText5</Name>
               <Page isRef="4" />
               <Parent isRef="11" />
@@ -193,11 +194,10 @@
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
-              <HorAlignment>Right</HorAlignment>
             </HeaderText5>
             <HeaderText6 Ref="16" type="Text" isKey="true">
-              <Border>Top, Bottom;[50:50:50];2;Solid;False;4;Black;True</Border>
-              <Brush>[50:50:50]</Brush>
+              <Border>Top, Bottom;[0:0:39];2;Solid;False;4;Black;True</Border>
+              <Brush>[79:129:189]</Brush>
               <CanGrow>True</CanGrow>
               <ClientRectangle>11,0,2,0.8</ClientRectangle>
               <ComponentStyle>Blue Steel_Header1</ComponentStyle>
@@ -205,6 +205,7 @@
               <Expressions isList="true" count="0" />
               <Font>Arial,9.75,Bold,Point,False,204</Font>
               <GrowToHeight>True</GrowToHeight>
+              <HorAlignment>Right</HorAlignment>
               <Name>HeaderText6</Name>
               <Page isRef="4" />
               <Parent isRef="11" />
@@ -213,11 +214,10 @@
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
-              <HorAlignment>Right</HorAlignment>
             </HeaderText6>
             <HeaderText8 Ref="17" type="Text" isKey="true">
-              <Border>Top, Bottom;[50:50:50];2;Solid;False;4;Black;True</Border>
-              <Brush>[50:50:50]</Brush>
+              <Border>Top, Bottom;[0:0:39];2;Solid;False;4;Black;True</Border>
+              <Brush>[79:129:189]</Brush>
               <CanGrow>True</CanGrow>
               <ClientRectangle>13,0,1.6,0.8</ClientRectangle>
               <ComponentStyle>Blue Steel_Header1</ComponentStyle>
@@ -225,6 +225,7 @@
               <Expressions isList="true" count="0" />
               <Font>Arial,9.75,Bold,Point,False,204</Font>
               <GrowToHeight>True</GrowToHeight>
+              <HorAlignment>Center</HorAlignment>
               <Name>HeaderText8</Name>
               <Page isRef="4" />
               <Parent isRef="11" />
@@ -233,11 +234,10 @@
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
-              <HorAlignment>Center</HorAlignment>
             </HeaderText8>
             <HeaderText9 Ref="18" type="Text" isKey="true">
-              <Border>Top, Bottom;[50:50:50];2;Solid;False;4;Black;True</Border>
-              <Brush>[50:50:50]</Brush>
+              <Border>Top, Bottom;[0:0:39];2;Solid;False;4;Black;True</Border>
+              <Brush>[79:129:189]</Brush>
               <CanGrow>True</CanGrow>
               <ClientRectangle>14.6,0,1.8,0.8</ClientRectangle>
               <ComponentStyle>Blue Steel_Header1</ComponentStyle>
@@ -245,6 +245,7 @@
               <Expressions isList="true" count="0" />
               <Font>Arial,9.75,Bold,Point,False,204</Font>
               <GrowToHeight>True</GrowToHeight>
+              <HorAlignment>Right</HorAlignment>
               <Name>HeaderText9</Name>
               <Page isRef="4" />
               <Parent isRef="11" />
@@ -253,11 +254,10 @@
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
-              <HorAlignment>Right</HorAlignment>
             </HeaderText9>
             <HeaderText7 Ref="19" type="Text" isKey="true">
-              <Border>Top, Bottom;[50:50:50];2;Solid;False;4;Black;True</Border>
-              <Brush>[50:50:50]</Brush>
+              <Border>Top, Bottom;[0:0:39];2;Solid;False;4;Black;True</Border>
+              <Brush>[79:129:189]</Brush>
               <CanGrow>True</CanGrow>
               <ClientRectangle>16.4,0,2.6,0.8</ClientRectangle>
               <ComponentStyle>Blue Steel_Header1</ComponentStyle>
@@ -265,6 +265,7 @@
               <Expressions isList="true" count="0" />
               <Font>Arial,9.75,Bold,Point,False,204</Font>
               <GrowToHeight>True</GrowToHeight>
+              <HorAlignment>Right</HorAlignment>
               <Name>HeaderText7</Name>
               <Page isRef="4" />
               <Parent isRef="11" />
@@ -273,7 +274,6 @@
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
-              <HorAlignment>Right</HorAlignment>
             </HeaderText7>
           </Components>
           <Conditions isList="true" count="0" />
@@ -288,15 +288,16 @@
           <ClientRectangle>0,5,19,0.8</ClientRectangle>
           <Components isList="true" count="8">
             <DataText2 Ref="21" type="Text" isKey="true">
-              <Border>Bottom;[200:200:200];1;Solid;False;4;Black</Border>
+              <Border>None;[0:0:39];1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
               <ClientRectangle>0,0,1.6,0.8</ClientRectangle>
               <ComponentStyle>Blue Steel_Data1</ComponentStyle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>Arial,9</Font>
+              <Font>Arial,8</Font>
               <GrowToHeight>True</GrowToHeight>
+              <HorAlignment>Center</HorAlignment>
               <Name>DataText2</Name>
               <Page isRef="4" />
               <Parent isRef="20" />
@@ -305,18 +306,18 @@
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <TextQuality>Wysiwyg</TextQuality>
               <VertAlignment>Center</VertAlignment>
-              <HorAlignment>Center</HorAlignment>
             </DataText2>
             <DataText3 Ref="22" type="Text" isKey="true">
-              <Border>Bottom;[200:200:200];1;Solid;False;4;Black</Border>
+              <Border>None;[0:0:39];1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
               <ClientRectangle>1.6,0,2.2,0.8</ClientRectangle>
               <ComponentStyle>Blue Steel_Data1</ComponentStyle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>Arial,9</Font>
+              <Font>Arial,8</Font>
               <GrowToHeight>True</GrowToHeight>
+              <HorAlignment>Center</HorAlignment>
               <Name>DataText3</Name>
               <Page isRef="4" />
               <Parent isRef="20" />
@@ -328,17 +329,16 @@
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <TextQuality>Wysiwyg</TextQuality>
               <VertAlignment>Center</VertAlignment>
-              <HorAlignment>Center</HorAlignment>
             </DataText3>
             <DataText12 Ref="24" type="Text" isKey="true">
-              <Border>Bottom;[200:200:200];1;Solid;False;4;Black</Border>
+              <Border>None;[0:0:39];1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
               <ClientRectangle>3.8,0,4.8,0.8</ClientRectangle>
               <ComponentStyle>Blue Steel_Data1</ComponentStyle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>Arial,9</Font>
+              <Font>Arial,8</Font>
               <GrowToHeight>True</GrowToHeight>
               <Name>DataText12</Name>
               <Page isRef="4" />
@@ -350,15 +350,16 @@
               <VertAlignment>Center</VertAlignment>
             </DataText12>
             <DataText5 Ref="25" type="Text" isKey="true">
-              <Border>Bottom;[200:200:200];1;Solid;False;4;Black</Border>
+              <Border>None;[0:0:39];1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
               <ClientRectangle>8.6,0,2.4,0.8</ClientRectangle>
               <ComponentStyle>Blue Steel_Data1</ComponentStyle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>Arial,9</Font>
+              <Font>Arial,8</Font>
               <GrowToHeight>True</GrowToHeight>
+              <HorAlignment>Right</HorAlignment>
               <Name>DataText5</Name>
               <Page isRef="4" />
               <Parent isRef="20" />
@@ -374,18 +375,18 @@
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <TextQuality>Wysiwyg</TextQuality>
               <VertAlignment>Center</VertAlignment>
-              <HorAlignment>Right</HorAlignment>
             </DataText5>
             <DataText6 Ref="27" type="Text" isKey="true">
-              <Border>Bottom;[200:200:200];1;Solid;False;4;Black</Border>
+              <Border>None;[0:0:39];1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
               <ClientRectangle>11,0,2,0.8</ClientRectangle>
               <ComponentStyle>Blue Steel_Data1</ComponentStyle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>Arial,9</Font>
+              <Font>Arial,8</Font>
               <GrowToHeight>True</GrowToHeight>
+              <HorAlignment>Right</HorAlignment>
               <Name>DataText6</Name>
               <Page isRef="4" />
               <Parent isRef="20" />
@@ -401,18 +402,18 @@
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <TextQuality>Wysiwyg</TextQuality>
               <VertAlignment>Center</VertAlignment>
-              <HorAlignment>Right</HorAlignment>
             </DataText6>
             <DataText8 Ref="29" type="Text" isKey="true">
-              <Border>Bottom;[200:200:200];1;Solid;False;4;Black</Border>
+              <Border>None;[0:0:39];1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
               <ClientRectangle>13,0,1.6,0.8</ClientRectangle>
               <ComponentStyle>Blue Steel_Data1</ComponentStyle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>Arial,9</Font>
+              <Font>Arial,8</Font>
               <GrowToHeight>True</GrowToHeight>
+              <HorAlignment>Center</HorAlignment>
               <Name>DataText8</Name>
               <Page isRef="4" />
               <Parent isRef="20" />
@@ -421,18 +422,18 @@
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <TextQuality>Wysiwyg</TextQuality>
               <VertAlignment>Center</VertAlignment>
-              <HorAlignment>Center</HorAlignment>
             </DataText8>
             <DataText9 Ref="30" type="Text" isKey="true">
-              <Border>Bottom;[200:200:200];1;Solid;False;4;Black</Border>
+              <Border>None;[0:0:39];1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
               <ClientRectangle>14.6,0,1.8,0.8</ClientRectangle>
               <ComponentStyle>Blue Steel_Data1</ComponentStyle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>Arial,9</Font>
+              <Font>Arial,8</Font>
               <GrowToHeight>True</GrowToHeight>
+              <HorAlignment>Right</HorAlignment>
               <Name>DataText9</Name>
               <Page isRef="4" />
               <Parent isRef="20" />
@@ -448,22 +449,22 @@
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <TextQuality>Wysiwyg</TextQuality>
               <VertAlignment>Center</VertAlignment>
-              <HorAlignment>Right</HorAlignment>
             </DataText9>
             <DataText7 Ref="32" type="Text" isKey="true">
-              <Border>Bottom;[200:200:200];1;Solid;False;4;Black</Border>
+              <Border>None;[0:0:39];1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
               <ClientRectangle>16.4,0,2.6,0.8</ClientRectangle>
               <ComponentStyle>Blue Steel_Data1</ComponentStyle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>Arial,9,Bold</Font>
+              <Font>Arial,8</Font>
               <GrowToHeight>True</GrowToHeight>
+              <HorAlignment>Right</HorAlignment>
               <Name>DataText7</Name>
               <Page isRef="4" />
               <Parent isRef="20" />
-              <Text>{vista_facturas_cabeceras.totalfacemi}</Text>
+              <Text>{vista_facturas_cabeceras.totalfacemi - vista_facturas_cabeceras.retencion}</Text>
               <TextBrush>[0:0:0]</TextBrush>
               <TextFormat Ref="33" type="CurrencyFormat" isKey="true">
                 <DecimalDigits>2</DecimalDigits>
@@ -474,8 +475,8 @@
               </TextFormat>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <TextQuality>Wysiwyg</TextQuality>
+              <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
-              <HorAlignment>Right</HorAlignment>
             </DataText7>
           </Components>
           <Conditions isList="true" count="0" />
@@ -515,6 +516,7 @@
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>Arial,10,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
               <Name>Text1</Name>
               <Page isRef="4" />
               <Parent isRef="34" />
@@ -529,7 +531,6 @@
               </TextFormat>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
-              <HorAlignment>Right</HorAlignment>
             </Text1>
             <Text2 Ref="38" type="Text" isKey="true">
               <Brush>Transparent</Brush>
@@ -537,6 +538,7 @@
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>Arial,10,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
               <Name>Text2</Name>
               <Page isRef="4" />
               <Parent isRef="34" />
@@ -551,7 +553,6 @@
               </TextFormat>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
-              <HorAlignment>Right</HorAlignment>
             </Text2>
             <Text3 Ref="40" type="Text" isKey="true">
               <Brush>Transparent</Brush>
@@ -559,10 +560,11 @@
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>Arial,11,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
               <Name>Text3</Name>
               <Page isRef="4" />
               <Parent isRef="34" />
-              <Text>{Sum(Data, vista_facturas_cabeceras.totalfacemi)}</Text>
+              <Text>{Sum(Data, vista_facturas_cabeceras.totalfacemi - vista_facturas_cabeceras.retencion)}</Text>
               <TextBrush>[128:0:0]</TextBrush>
               <TextFormat Ref="41" type="CurrencyFormat" isKey="true">
                 <DecimalDigits>2</DecimalDigits>
@@ -573,7 +575,6 @@
               </TextFormat>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
-              <HorAlignment>Right</HorAlignment>
             </Text3>
             <HorizontalLinePrimitive2 Ref="42" type="HorizontalLinePrimitive" isKey="true">
               <ClientRectangle>8.6,0.1,10.4,0.0254</ClientRectangle>
@@ -621,10 +622,10 @@
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
   <ReportAuthor>DSA ASD</ReportAuthor>
-  <ReportChanged>3/4/2026 12:00:00 PM</ReportChanged>
+  <ReportChanged>3/4/2026 9:48:47 PM</ReportChanged>
   <ReportCreated>3/3/2026 8:18:40 PM</ReportCreated>
-  <ReportFile>C:\Users\admin\Documents\ReporteListadoFechas.mrt</ReportFile>
-  <ReportGuid>4c33ddf2dc0d4ed4b923fd699574c2ab</ReportGuid>
+  <ReportFile>C:\Users\admin\source\repos\Facturacion\Informes\ReporteListadoFechas.mrt</ReportFile>
+  <ReportGuid>c4e7a1c63177499b92b0bc01565af9a5</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2026.1.4.0</ReportVersion>
@@ -657,11 +658,11 @@ namespace Reports
       <Brush>Transparent</Brush>
       <CollectionName>Blue Steel</CollectionName>
       <Conditions isList="true" count="1">
-        <Item30 Ref="46" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
+        <Item33 Ref="46" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
           <ComponentType>Text, Primitive, Image</ComponentType>
           <Placement>ReportTitle</Placement>
           <Type>ComponentType, Placement, PlacementNestedLevel</Type>
-        </Item30>
+        </Item33>
       </Conditions>
       <Font>Arial,14,Bold</Font>
       <Name>Blue Steel_Report_Title1</Name>
@@ -673,13 +674,13 @@ namespace Reports
       <Brush>Transparent</Brush>
       <CollectionName>Blue Steel</CollectionName>
       <Conditions isList="true" count="1">
-        <Item32 Ref="48" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
+        <Item35 Ref="48" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
           <ComponentType>Text, Primitive, Image</ComponentType>
           <OperationPlacementNestedLevel>GreaterThanOrEqualTo</OperationPlacementNestedLevel>
           <Placement>ReportTitle</Placement>
           <PlacementNestedLevel>2</PlacementNestedLevel>
           <Type>ComponentType, Placement, PlacementNestedLevel</Type>
-        </Item32>
+        </Item35>
       </Conditions>
       <Font>Arial,10,Bold</Font>
       <Name>Blue Steel_Report_Title2</Name>
@@ -691,11 +692,11 @@ namespace Reports
       <Brush>Transparent</Brush>
       <CollectionName>Blue Steel</CollectionName>
       <Conditions isList="true" count="1">
-        <Item34 Ref="50" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
+        <Item37 Ref="50" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
           <ComponentType>Text, Primitive, Image</ComponentType>
           <Placement>ReportSummary</Placement>
           <Type>ComponentType, Placement</Type>
-        </Item34>
+        </Item37>
       </Conditions>
       <Font>Arial,10,Bold</Font>
       <Name>Blue Steel_Report_Summary</Name>
@@ -707,11 +708,11 @@ namespace Reports
       <Brush>Transparent</Brush>
       <CollectionName>Blue Steel</CollectionName>
       <Conditions isList="true" count="1">
-        <Item36 Ref="52" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
+        <Item39 Ref="52" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
           <ComponentType>Text, Primitive, Image</ComponentType>
           <Placement>PageHeader</Placement>
           <Type>ComponentType, Placement</Type>
-        </Item36>
+        </Item39>
       </Conditions>
       <Font>Arial,10</Font>
       <Name>Blue Steel_Page_Header</Name>
@@ -723,11 +724,11 @@ namespace Reports
       <Brush>Transparent</Brush>
       <CollectionName>Blue Steel</CollectionName>
       <Conditions isList="true" count="1">
-        <Item38 Ref="54" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
+        <Item41 Ref="54" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
           <ComponentType>Text, Primitive, Image</ComponentType>
           <Placement>PageFooter</Placement>
           <Type>ComponentType, Placement</Type>
-        </Item38>
+        </Item41>
       </Conditions>
       <Font>Arial,10</Font>
       <Name>Blue Steel_Page_Footer</Name>
@@ -739,12 +740,12 @@ namespace Reports
       <Brush>Transparent</Brush>
       <CollectionName>Blue Steel</CollectionName>
       <Conditions isList="true" count="1">
-        <Item40 Ref="56" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
+        <Item43 Ref="56" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
           <ComponentType>Text, Primitive, Image</ComponentType>
           <OperationPlacementNestedLevel>GreaterThanOrEqualTo</OperationPlacementNestedLevel>
           <Placement>GroupHeader</Placement>
           <Type>ComponentType, Placement, PlacementNestedLevel</Type>
-        </Item40>
+        </Item43>
       </Conditions>
       <Font>Arial,13,Bold</Font>
       <Name>Blue Steel_Group_Header1</Name>
@@ -756,11 +757,11 @@ namespace Reports
       <Brush>Transparent</Brush>
       <CollectionName>Blue Steel</CollectionName>
       <Conditions isList="true" count="1">
-        <Item42 Ref="58" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
+        <Item45 Ref="58" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
           <ComponentType>Text, Primitive, Image</ComponentType>
           <Placement>GroupFooter</Placement>
           <Type>ComponentType, Placement, PlacementNestedLevel</Type>
-        </Item42>
+        </Item45>
       </Conditions>
       <Font>Arial,9.75,Bold,Point,False,204</Font>
       <Name>Blue Steel_Group_Footer1</Name>
@@ -772,12 +773,12 @@ namespace Reports
       <Brush>[79:129:189]</Brush>
       <CollectionName>Blue Steel</CollectionName>
       <Conditions isList="true" count="1">
-        <Item44 Ref="60" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
+        <Item47 Ref="60" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
           <ComponentType>Text, Primitive, Image</ComponentType>
           <OperationPlacementNestedLevel>GreaterThanOrEqualTo</OperationPlacementNestedLevel>
           <Placement>Header</Placement>
           <Type>ComponentType, Placement, PlacementNestedLevel</Type>
-        </Item44>
+        </Item47>
       </Conditions>
       <Font>Arial,9.75,Bold,Point,False,204</Font>
       <Name>Blue Steel_Header1</Name>
@@ -789,12 +790,12 @@ namespace Reports
       <Brush>Transparent</Brush>
       <CollectionName>Blue Steel</CollectionName>
       <Conditions isList="true" count="1">
-        <Item46 Ref="62" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
+        <Item49 Ref="62" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
           <ComponentType>Text, Primitive, Image, CheckBox</ComponentType>
           <OperationPlacementNestedLevel>GreaterThanOrEqualTo</OperationPlacementNestedLevel>
           <Placement>Data</Placement>
           <Type>ComponentType, Placement, PlacementNestedLevel</Type>
-        </Item46>
+        </Item49>
       </Conditions>
       <Font>Arial,8</Font>
       <Name>Blue Steel_Data1</Name>
@@ -806,11 +807,11 @@ namespace Reports
       <Brush>[255:255:255]</Brush>
       <CollectionName>Blue Steel</CollectionName>
       <Conditions isList="true" count="1">
-        <Item48 Ref="64" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
+        <Item51 Ref="64" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
           <OperationPlacementNestedLevel>GreaterThanOrEqualTo</OperationPlacementNestedLevel>
           <Placement>DataOddStyle</Placement>
           <Type>Placement, PlacementNestedLevel</Type>
-        </Item48>
+        </Item51>
       </Conditions>
       <Font>Arial,8</Font>
       <Name>Blue Steel_Data1_Odd Style</Name>
@@ -822,11 +823,11 @@ namespace Reports
       <Brush>[216:216:216]</Brush>
       <CollectionName>Blue Steel</CollectionName>
       <Conditions isList="true" count="1">
-        <Item50 Ref="66" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
+        <Item53 Ref="66" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
           <OperationPlacementNestedLevel>GreaterThanOrEqualTo</OperationPlacementNestedLevel>
           <Placement>DataEvenStyle</Placement>
           <Type>Placement, PlacementNestedLevel</Type>
-        </Item50>
+        </Item53>
       </Conditions>
       <Font>Arial,8</Font>
       <Name>Blue Steel_Data1_Even Style</Name>
@@ -838,11 +839,11 @@ namespace Reports
       <Brush>White</Brush>
       <CollectionName>Blue Steel</CollectionName>
       <Conditions isList="true" count="1">
-        <Item52 Ref="68" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
+        <Item55 Ref="68" type="Stimulsoft.Report.StiStyleCondition" isKey="true">
           <ComponentType>Text, Primitive, Image</ComponentType>
           <Placement>Footer</Placement>
           <Type>ComponentType, Placement, PlacementNestedLevel</Type>
-        </Item52>
+        </Item55>
       </Conditions>
       <Font>Arial,8.25,Bold,Point,False,204</Font>
       <Name>Blue Steel_Footer1</Name>
