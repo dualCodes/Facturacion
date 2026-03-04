@@ -238,6 +238,19 @@ namespace FacturacionDAM.Formularios
                 return;
             }
 
+            // ⭐ CRUCIAL: Este reporte usa vista_facturas_cabeceras (NO vista_facturas_emitidas)
+            tabla.LaTabla.TableName = "vista_facturas_cabeceras";
+
+            // DEBUG: Verificar los datos cargados
+            System.Diagnostics.Debug.WriteLine($"=== DEBUG INFORME FECHAS ===");
+            System.Diagnostics.Debug.WriteLine($"Rango: {fechaIni.Value:dd/MM/yyyy} - {fechaFin.Value:dd/MM/yyyy}");
+            System.Diagnostics.Debug.WriteLine($"Filas cargadas: {tabla.LaTabla.Rows.Count}");
+            System.Diagnostics.Debug.WriteLine($"Columnas: {tabla.LaTabla.Columns.Count}");
+            foreach (System.Data.DataRow row in tabla.LaTabla.Rows)
+            {
+                System.Diagnostics.Debug.WriteLine($"  Factura: {row["Idfacemi"]} - Num: {row["numerofac"]} - Fecha: {row["fecha"]}");
+            }
+
             string reportPath = Path.Combine(Application.StartupPath, "Informes", "ReporteListadoFechas.mrt");
 
             if (!File.Exists(reportPath))
@@ -250,11 +263,55 @@ namespace FacturacionDAM.Formularios
             var report = new StiReport();
             report.Load(reportPath);
 
-            // Pasar las variables de fecha al informe
+            // ⭐ PASO 1: Eliminar TODAS las conexiones a base de datos
+            report.Dictionary.Databases.Clear();
+
+            // ⭐ PASO 2: Eliminar TODOS los DataSources SQL viejos (vista_facturas_cabeceras, etc.)
+            var dataSourcesAEliminar = new System.Collections.Generic.List<Stimulsoft.Report.Dictionary.StiDataSource>();
+            foreach (Stimulsoft.Report.Dictionary.StiDataSource ds in report.Dictionary.DataSources)
+            {
+                // Eliminar solo los DataSources SQL (no los DataTableSource que creemos nosotros)
+                if (ds is Stimulsoft.Report.Dictionary.StiSqlSource || 
+                    ds is Stimulsoft.Report.Dictionary.StiMariaDbSource ||
+                    ds is Stimulsoft.Report.Dictionary.StiMySqlSource)
+                {
+                    dataSourcesAEliminar.Add(ds);
+                }
+            }
+            foreach (var ds in dataSourcesAEliminar)
+            {
+                report.Dictionary.DataSources.Remove(ds);
+            }
+
+            // ⭐ PASO 3: Pasar las variables de fecha al informe
             report.Dictionary.Variables["vFechaInicio"].Value = fechaIni.Value.ToString("dd/MM/yyyy");
             report.Dictionary.Variables["vFechaFin"].Value = fechaFin.Value.ToString("dd/MM/yyyy");
 
-            report.RegData("vista_facturas_emitidas", tabla.LaTabla);
+            // ⭐ PASO 4: Crear un DataSet y agregar la tabla
+            var dataSet = new System.Data.DataSet("FacturasDataSet");
+            dataSet.Tables.Add(tabla.LaTabla);
+
+            // ⭐ PASO 5: Registrar el DataSet
+            report.RegData(dataSet);
+
+            // ⭐ PASO 6: Sincronizar el diccionario
+            report.Dictionary.Synchronize();
+
+            // DEBUG: Verificar el diccionario después de registrar
+            System.Diagnostics.Debug.WriteLine($"Databases: {report.Dictionary.Databases.Count}");
+            System.Diagnostics.Debug.WriteLine($"DataSources: {report.Dictionary.DataSources.Count}");
+            foreach (Stimulsoft.Report.Dictionary.StiDataSource ds in report.Dictionary.DataSources)
+            {
+                System.Diagnostics.Debug.WriteLine($"  DataSource: {ds.Name} (Tipo: {ds.GetType().Name})");
+                if (ds is Stimulsoft.Report.Dictionary.StiDataTableSource dts)
+                {
+                    System.Diagnostics.Debug.WriteLine($"    Filas en DataSource: {dts.DataTable?.Rows.Count ?? 0}");
+                }
+            }
+
+            // ⭐ PASO 7: Renderizar el reporte
+            report.Render(false);
+
             report.Show();
         }
 
@@ -314,6 +371,9 @@ namespace FacturacionDAM.Formularios
                 return;
             }
 
+            // ⭐ CRUCIAL: Este reporte usa vista_facturas_cabeceras (igual que ReporteListadoFechas)
+            tabla.LaTabla.TableName = "vista_facturas_cabeceras";
+
             string reportPath = Path.Combine(Application.StartupPath, "Informes", "ReporteListadoClientes.mrt");
 
             if (!File.Exists(reportPath))
@@ -326,11 +386,42 @@ namespace FacturacionDAM.Formularios
             var report = new StiReport();
             report.Load(reportPath);
 
-            // Pasar las variables de fecha al informe
+            // ⭐ PASO 1: Eliminar TODAS las conexiones a base de datos
+            report.Dictionary.Databases.Clear();
+
+            // ⭐ PASO 2: Eliminar TODOS los DataSources SQL viejos
+            var dataSourcesAEliminar = new System.Collections.Generic.List<Stimulsoft.Report.Dictionary.StiDataSource>();
+            foreach (Stimulsoft.Report.Dictionary.StiDataSource ds in report.Dictionary.DataSources)
+            {
+                if (ds is Stimulsoft.Report.Dictionary.StiSqlSource || 
+                    ds is Stimulsoft.Report.Dictionary.StiMariaDbSource ||
+                    ds is Stimulsoft.Report.Dictionary.StiMySqlSource)
+                {
+                    dataSourcesAEliminar.Add(ds);
+                }
+            }
+            foreach (var ds in dataSourcesAEliminar)
+            {
+                report.Dictionary.DataSources.Remove(ds);
+            }
+
+            // ⭐ PASO 3: Pasar las variables de fecha al informe
             report.Dictionary.Variables["vFechaInicio"].Value = fechaIni.Value.ToString("dd/MM/yyyy");
             report.Dictionary.Variables["vFechaFin"].Value = fechaFin.Value.ToString("dd/MM/yyyy");
 
-            report.RegData("vista_facturas_emitidas", tabla.LaTabla);
+            // ⭐ PASO 4: Crear un DataSet y agregar la tabla
+            var dataSet = new System.Data.DataSet("FacturasDataSet");
+            dataSet.Tables.Add(tabla.LaTabla);
+
+            // ⭐ PASO 5: Registrar el DataSet
+            report.RegData(dataSet);
+
+            // ⭐ PASO 6: Sincronizar el diccionario
+            report.Dictionary.Synchronize();
+
+            // ⭐ PASO 7: Renderizar el reporte
+            report.Render(false);
+
             report.Show();
         }
     }
