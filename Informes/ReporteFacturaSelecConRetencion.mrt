@@ -532,7 +532,7 @@ Teléfono: {vista_facturas_emitidas.cliente_telefono}</Text>
               <Name>TextTotalVal</Name>
               <Page isRef="6" />
               <Parent isRef="29" />
-              <Text>{vista_facturas_emitidas.totalfacemi}</Text>
+              <Text>{vista_facturas_emitidas.basefacemi + vista_facturas_emitidas.cuotafacemi - vista_facturas_emitidas.retencion}</Text>
               <TextBrush>[128:0:0]</TextBrush>
               <TextFormat Ref="41" type="CurrencyFormat" isKey="true">
                 <DecimalDigits>2</DecimalDigits>
@@ -693,10 +693,10 @@ L7+9VVhznAAAAABJRU5ErkJggg==</Image>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
   <ReportAuthor>DSA ASD</ReportAuthor>
-  <ReportChanged>3/4/2026 9:40:47 PM</ReportChanged>
+  <ReportChanged>3/4/2026 9:45:30 PM</ReportChanged>
   <ReportCreated>3/3/2026 1:56:39 PM</ReportCreated>
   <ReportFile>C:\Users\admin\source\repos\Facturacion\Informes\ReporteFacturaSelecConRetencion.mrt</ReportFile>
-  <ReportGuid>0963c435f1f947a8ac883eef1989ffba</ReportGuid>
+  <ReportGuid>4b942cb7fdb44214ad70553be57cd5f2</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2026.1.4.0</ReportVersion>
