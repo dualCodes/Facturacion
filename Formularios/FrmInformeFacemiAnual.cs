@@ -125,6 +125,9 @@ namespace FacturacionDAM.Formularios
                 return;
             }
 
+            // ⭐ CRUCIAL: Asignar el TableName al DataTable (Stimulsoft lo necesita)
+            tabla.LaTabla.TableName = "vista_facturas_emitidas";
+
             string reportPath;
 
             if (conRetencion)
@@ -145,7 +148,37 @@ namespace FacturacionDAM.Formularios
 
             var report = new StiReport();
             report.Load(reportPath);
-            report.RegData("vista_facturas_emitidas", tabla.LaTabla);
+
+            // ⭐ PASO 1: Eliminar TODAS las conexiones a base de datos
+            report.Dictionary.Databases.Clear();
+
+            // ⭐ PASO 2: Buscar y eliminar el DataSource SQL viejo (StiMariaDbSource/StiSqlSource)
+            var oldDataSource = report.Dictionary.DataSources["vista_facturas_emitidas"];
+            if (oldDataSource != null)
+            {
+                report.Dictionary.DataSources.Remove(oldDataSource);
+            }
+
+            // ⭐ PASO 3: Crear un DataSet y agregar la tabla con nombre
+            var dataSet = new System.Data.DataSet("FacturasDataSet");
+            dataSet.Tables.Add(tabla.LaTabla);
+
+            // ⭐ PASO 4: Registrar el DataSet completo (método recomendado por Stimulsoft)
+            report.RegData(dataSet);
+
+            // ⭐ PASO 5: Sincronizar el diccionario
+            report.Dictionary.Synchronize();
+
+            // DEBUG: Verificar el DataSource registrado
+            System.Diagnostics.Debug.WriteLine($"DataSources registrados: {report.Dictionary.DataSources.Count}");
+            foreach (Stimulsoft.Report.Dictionary.StiDataSource ds in report.Dictionary.DataSources)
+            {
+                System.Diagnostics.Debug.WriteLine($"  - {ds.Name} (Tipo: {ds.GetType().Name})");
+            }
+
+            // ⭐ PASO 6: Renderizar el reporte
+            report.Render(false);
+
             report.Show();
         }
 

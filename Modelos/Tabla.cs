@@ -42,7 +42,9 @@ namespace FacturacionDAM.Modelos
             }
             catch (Exception ex)
             {
-                Program.appDAM.RegistrarLog("Cargando emisores", ex.Message);
+                string errorMsg = $"Error al inicializar datos. SQL: {sql}. Error: {ex.Message}";
+                Program.appDAM.RegistrarLog("Tabla.InicializarDatos", errorMsg);
+                Program.appDAM.ActualizarUltimoError(errorMsg);
                 return false;
             }
         }

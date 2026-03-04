@@ -89,8 +89,26 @@ namespace FacturacionDAM.Formularios
         {
             if (_bs.Current is DataRowView row)
             {
-                if (MessageBox.Show("¿Desea eliminar el registro seleccionado?",
-                    "Confirmar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                int idProveedor = Convert.ToInt32(row["id"]);
+                string nombreComercial = row["nombrecomercial"].ToString();
+
+                // Verificar si el proveedor tiene facturas recibidas
+                if (TieneFacturasRecibidas(idProveedor))
+                {
+                    MessageBox.Show(
+                        $"No se puede eliminar el proveedor '{nombreComercial}' porque tiene facturas recibidas asociadas.\n\n" +
+                        "Debe eliminar primero todas las facturas de este proveedor.",
+                        "No se puede eliminar",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (MessageBox.Show(
+                    $"¿Desea eliminar el proveedor '{nombreComercial}'?",
+                    "Confirmar eliminación",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     _bs.RemoveCurrent();
                     _tabla.GuardarCambios();
@@ -249,6 +267,37 @@ namespace FacturacionDAM.Formularios
         private string ObtenerNombreProvincia(int id)
         {
             return _provincias.TryGetValue(id, out var nombre) ? nombre : "";
+        }
+
+        /// <summary>
+        /// Comprueba si el proveedor cuyo ID se pasa como parámetro tiene facturas recibidas.
+        /// </summary>
+        /// <param name="idProveedor">El ID del proveedor a comprobar.</param>
+        /// <returns>Retorna true si tiene facturas recibidas, false si no.</returns>
+        private bool TieneFacturasRecibidas(int idProveedor)
+        {
+            try
+            {
+                using var cmd = new MySqlCommand(
+                    "SELECT COUNT(*) FROM facrec WHERE idproveedor = @idproveedor",
+                    Program.appDAM.LaConexion);
+                cmd.Parameters.AddWithValue("@idproveedor", idProveedor);
+
+                var resultado = cmd.ExecuteScalar();
+                int count = Convert.ToInt32(resultado);
+
+                return count > 0;
+            }
+            catch (Exception ex)
+            {
+                Program.appDAM.RegistrarLog("Verificar facturas recibidas de proveedor", ex.Message);
+                MessageBox.Show(
+                    "Error al verificar si el proveedor tiene facturas asociadas.\n\n" + ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return true; // Por seguridad, retornamos true para evitar borrado si hay error
+            }
         }
 
     }

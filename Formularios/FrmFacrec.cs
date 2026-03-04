@@ -75,8 +75,25 @@ namespace FacturacionDAM.Formularios
         {
             try
             {
-                if (!CargarConceptos() || !CargarDatosempresaYproveedor())
+                if (!CargarConceptos())
+                {
+                    string errorMsg = $"No se pudieron cargar los conceptos de facturación.\n\nÚltimo error: {Program.appDAM.ultimoError}";
+                    Program.appDAM.RegistrarLog("FrmFacrec_Load - CargarConceptos", errorMsg);
+                    MessageBox.Show(errorMsg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.DialogResult = DialogResult.Cancel;
+                    this.Close();
                     return;
+                }
+
+                if (!CargarDatosempresaYproveedor())
+                {
+                    string errorMsg = $"No se pudieron cargar los datos del emisor y proveedor.\n\nÚltimo error: {Program.appDAM.ultimoError}";
+                    Program.appDAM.RegistrarLog("FrmFacrec_Load - CargarDatos", errorMsg);
+                    MessageBox.Show(errorMsg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.DialogResult = DialogResult.Cancel;
+                    this.Close();
+                    return;
+                }
 
                 PrepararBindingFactura();
 
@@ -90,9 +107,17 @@ namespace FacturacionDAM.Formularios
             }
             catch (Exception ex)
             {
-                Program.appDAM.RegistrarLog("Inicializar factura. Edición: " + modoEdicion.ToString(), ex.Message);
-                MessageBox.Show("Se ha producido un error al incializar la factura",
-                    "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                string errorCompleto = $"Se ha producido un error al inicializar la factura:\n\n{ex.Message}\n\nStack Trace:\n{ex.StackTrace}\n\nÚltimo error del sistema: {Program.appDAM.ultimoError}";
+                Program.appDAM.RegistrarLog("FrmFacrec_Load - Exception", errorCompleto);
+
+                MessageBox.Show(
+                    $"ERROR AL INICIALIZAR FACTURA:\n\n{ex.Message}\n\nÚltimo error: {Program.appDAM.ultimoError}\n\nRevise el archivo de log para más detalles.",
+                    "Error Crítico", 
+                    MessageBoxButtons.OK, 
+                    MessageBoxIcon.Error);
+
+                this.DialogResult = DialogResult.Cancel;
+                this.Close();
             }
         }
 
@@ -405,15 +430,25 @@ namespace FacturacionDAM.Formularios
         {
             int idfacrec = Convert.ToInt32((_bsFactura.Current as DataRowView)["id"]);
             string mSql = $"SELECT * FROM facreclin WHERE idfacrec = {idfacrec}";
-            if (_tablaLineasFactura.InicializarDatos(mSql))
-                _bsLineasFactura.DataSource = _tablaLineasFactura.LaTabla;
+            if (!_tablaLineasFactura.InicializarDatos(mSql))
+            {
+                Program.appDAM.RegistrarLog("Cargar líneas factura existente", 
+                    $"Error al cargar líneas. ID Factura: {idfacrec}. SQL: {mSql}. Último error: {Program.appDAM.ultimoError}");
+                throw new Exception($"No se pudieron cargar las líneas de la factura. Último error: {Program.appDAM.ultimoError}");
+            }
+            _bsLineasFactura.DataSource = _tablaLineasFactura.LaTabla;
         }
 
         private void CrearLineasFacturaNueva()
         {
             string mSql = $"SELECT * FROM facreclin WHERE id = -1";
-            if (_tablaLineasFactura.InicializarDatos(mSql))
-                _bsLineasFactura.DataSource = _tablaLineasFactura.LaTabla;
+            if (!_tablaLineasFactura.InicializarDatos(mSql))
+            {
+                Program.appDAM.RegistrarLog("Crear líneas factura nueva", 
+                    $"Error al inicializar tabla de líneas. SQL: {mSql}. Último error: {Program.appDAM.ultimoError}");
+                throw new Exception($"No se pudo inicializar la tabla de líneas de factura. Último error: {Program.appDAM.ultimoError}");
+            }
+            _bsLineasFactura.DataSource = _tablaLineasFactura.LaTabla;
         }
 
         /// <summary>

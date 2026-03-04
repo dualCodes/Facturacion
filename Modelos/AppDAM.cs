@@ -163,6 +163,15 @@ namespace FacturacionDAM.Modelos {
         }
 
         /// <summary>
+        /// Actualiza el último error registrado.
+        /// </summary>
+        /// <param name="error">Mensaje de error a registrar.</param>
+        public void ActualizarUltimoError(string error)
+        {
+            ultimoError = error;
+        }
+
+        /// <summary>
         /// Acceso de sólo lectura al objeto de conexion a la base de datos.
         /// </summary>
         public MySqlConnection LaConexion => _conexion;

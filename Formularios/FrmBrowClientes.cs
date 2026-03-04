@@ -96,16 +96,24 @@ namespace FacturacionDAM.Formularios
             if (_bs.Current is DataRowView row)
             {
                 string mNif = row["nifcif"].ToString();
+                string nombreComercial = row["nombrecomercial"].ToString();
 
                 if (TieneFacturasEmitidas(mNif))
                 {
-                    MessageBox.Show("No se puede eliminar el Cliente porque tiene facturas emitidas.");
+                    MessageBox.Show(
+                        $"No se puede eliminar el cliente '{nombreComercial}' porque tiene facturas emitidas asociadas.\n\n" +
+                        "Debe eliminar primero todas las facturas de este cliente.",
+                        "No se puede eliminar",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
                     return;
                 }
 
-
-                if (MessageBox.Show("¿Desea eliminar el registro seleccionado?",
-                    "Confirmar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show(
+                    $"¿Desea eliminar el cliente '{nombreComercial}'?",
+                    "Confirmar eliminación",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     _bs.RemoveCurrent();
                     _tabla.GuardarCambios();
@@ -292,7 +300,41 @@ namespace FacturacionDAM.Formularios
         /// <returns>Retorna true si tiene facturas, false si no.</returns>
         private bool TieneFacturasEmitidas(string aNifCif)
         {
-            return false;
+            try
+            {
+                // Primero obtenemos el ID del cliente por su NIF/CIF
+                using var cmdCliente = new MySqlCommand(
+                    "SELECT id FROM clientes WHERE nifcif = @nifcif",
+                    Program.appDAM.LaConexion);
+                cmdCliente.Parameters.AddWithValue("@nifcif", aNifCif);
+
+                var resultadoId = cmdCliente.ExecuteScalar();
+                if (resultadoId == null)
+                    return false;
+
+                int idCliente = Convert.ToInt32(resultadoId);
+
+                // Ahora verificamos si tiene facturas
+                using var cmdFacturas = new MySqlCommand(
+                    "SELECT COUNT(*) FROM facemi WHERE idcliente = @idcliente",
+                    Program.appDAM.LaConexion);
+                cmdFacturas.Parameters.AddWithValue("@idcliente", idCliente);
+
+                var resultado = cmdFacturas.ExecuteScalar();
+                int count = Convert.ToInt32(resultado);
+
+                return count > 0;
+            }
+            catch (Exception ex)
+            {
+                Program.appDAM.RegistrarLog("Verificar facturas emitidas de cliente", ex.Message);
+                MessageBox.Show(
+                    "Error al verificar si el cliente tiene facturas asociadas.\n\n" + ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return true; // Por seguridad, retornamos true para evitar borrado si hay error
+            }
         }
 
     }
